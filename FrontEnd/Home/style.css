@@ -12,5 +12,10 @@
 #userlogo{
     width: 70px;
     height: auto;
-    margin-left: 160px;
+}
+
+#adminlogo{
+    width: 60px;
+    height: auto;
+    margin-left: 45px;
 }
