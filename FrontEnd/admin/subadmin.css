@@ -1,0 +1,18 @@
+/* Custom tweaks to complement Bootstrap */
+body {
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+#msg {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Success and Error utility classes if not using Bootstrap defaults */
+.text-success-custom {
+    color: #198754;
+}
+
+.text-danger-custom {
+    color: #dc3545;
+}
