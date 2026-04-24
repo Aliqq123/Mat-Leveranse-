@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 #logo{
     width: 100px;
     height: auto;
@@ -18,4 +23,13 @@
     width: 60px;
     height: auto;
     margin-left: 45px;
+}
+
+.filters-box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    background-color: #F8F9FA;
+    width: 110px;
+    min-height: 100vh;
 }
