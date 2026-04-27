@@ -13,18 +13,50 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/FrontEnd/Home/index.html">
           <img id="logo" src="../Images/foodie.png" alt="Foodie" />
         </a>
-      </div>
-            <div class="container-fluid">
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
+          </ul>
         <a class="navbar-brand" href="/FrontEnd/Home/index.html">
           <h2 class="buttoninfouser"> Login In </h2>
         </a>
+        </div>
       </div>
     </nav>
-    <h1 id="maintext"> DAGS FÖR LITE KÄK! </h1>
+        <div class="filters-box">
+      <h3>Filters</h3>
+
+      <label>
+        <input type="checkbox" />
+        Filter
+      </label>
+
+      <label>
+        <input type="checkbox" />
+        Alternative
+      </label>
+    </div>
   </body>
 </html>
