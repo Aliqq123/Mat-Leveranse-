@@ -33,3 +33,27 @@ html, body {
     width: 110px;
     min-height: 100vh;
 }
+
+#textkundvagn{
+    margin-left: 28%;
+    font-size: 100px;
+}
+
+#buttoncontinue{
+    margin-left:28%;
+    margin-top: 25%;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+#buttonpaynow{
+        margin-left: 14%;
+        width: 200px;
+        height: 50px;
+        border-radius: 20px;
+}
+
+#textpay{
+    margin-left: 34%;
+}
