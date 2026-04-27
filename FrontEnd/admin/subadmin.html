@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="subadmin.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,31 +15,38 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/FrontEnd/Home/index.html">
+          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+        </a>
+
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="/FrontEnd/Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./admin.html">Features</a>
+              <a class="nav-link" href="/FrontEnd/admin/admin.html">
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="/FrontEnd/User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
             </li>
           </ul>
         </div>
@@ -46,42 +54,88 @@
     </nav>
 
     <br />
-    <div style="display: flex; flex-direction: column; align-items: center">
-      <h3>Inventory</h3>
-      <div style="width: 80vw; border: 2px black solid">
-        <form>
-          <label for="name">Enter your name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="e.g. Mike Shinoda"
-          />
-          <button type="submit">Submit</button>
-        </form>
-        
-        <form>
-          <label for="name">Enter your name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="e.g. Mike Shinoda"
-          />
-          <button type="submit">Submit</button>
-        </form>
 
-        <form>
-          <label for="name">Enter your name:</label>
+    <div class="container mt-5">
+      <h3 class="mb-4">Lägg till ny produkt</h3>
+
+      <form id="addProductForm" class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label for="productName" class="form-label">Produktnamn</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="T.ex. Banan"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <label for="productOrigin" class="form-label"
+            >Ursprung (Origin)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="productOrigin"
+            placeholder="T.ex. Ecuador"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <label for="productPrice" class="form-label">Pris</label>
           <input
             type="number"
-            id="name"
-            name="name"
-            placeholder="e.g. Mike Shinoda"
+            class="form-control"
+            id="productPrice"
+            placeholder="T.ex. 25"
+            required
           />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+        </div>
+
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">
+            Spara produkt
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container mt-5">
+      <h3 class="mb-4">Ta bort en produkt</h3>
+
+      <form id="addProductForm" class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label for="productName" class="form-label">Produktnamn</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="T.ex. Banan"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <label for="productOrigin" class="form-label"
+            >Ursprung (Origin)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="productOrigin"
+            placeholder="T.ex. Ecuador"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">
+            Spara produkt
+          </button>
+        </div>
+      </form>
     </div>
 
     <script

@@ -3,27 +3,6 @@ html, body {
     margin: 0;
 }
 
-#logo{
-    width: 100px;
-    height: auto;
-}
-
-#cartlogo{
-    width: 50px;
-    height: auto;
-    margin-left: 1150px;
-}
-
-#userlogo{
-    width: 70px;
-    height: auto;
-}
-
-#adminlogo{
-    width: 60px;
-    height: auto;
-    margin-left: 45px;
-}
 
 .filters-box{
     display: flex;
@@ -58,6 +37,12 @@ html, body {
     margin-left: 34%;
 }
 
-#textnames{
-    margin-left: 100px;
+#logo {
+  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  width: auto;
+}
+
+#cartlogo, #adminlogo, #userlogo {
+  height: 30px; /* Standardstorlek för ikoner */
+  width: auto;
 }

@@ -1,0 +1,10 @@
+/* Lägg in detta i din /FrontEnd/Home/style.css */
+#logo {
+  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  width: auto;
+}
+
+#cartlogo, #adminlogo, #userlogo {
+  height: 30px; /* Standardstorlek för ikoner */
+  width: auto;
+}
