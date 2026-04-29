@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict fdcbF5AzyZwXgpLjd1AOuGJckw8OgrpOiJ7dDoECBtKw1OTDj03AjKf9dDLeaoK
+\restrict DOJgX9of47eWmLQIFlHOWWYxlYpa3c7kcttwQxinBVKCu22zsHFBBcKcvIzQe0z
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
 
--- Started on 2026-04-27 21:12:21
+-- Started on 2026-04-29 13:39:32
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -120,8 +120,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.customers (customer_id, customer_firstname, customer_lasname, customer_epost) FROM stdin;
-\.
 
 
 --
@@ -130,8 +128,6 @@ COPY public.customers (customer_id, customer_firstname, customer_lasname, custom
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.orders (order_id, order_number, product_id) FROM stdin;
-\.
 
 
 --
@@ -140,8 +136,6 @@ COPY public.orders (order_id, order_number, product_id) FROM stdin;
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.products (product_id, product_name) FROM stdin;
-\.
 
 
 --
@@ -150,8 +144,6 @@ COPY public.products (product_id, product_name) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users (id, email, password) FROM stdin;
-\.
 
 
 --
@@ -217,11 +209,11 @@ ALTER TABLE ONLY public.orders
     ADD CONSTRAINT orders_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.products(product_id);
 
 
--- Completed on 2026-04-27 21:12:21
+-- Completed on 2026-04-29 13:39:32
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict fdcbF5AzyZwXgpLjd1AOuGJckw8OgrpOiJ7dDoECBtKw1OTDj03AjKf9dDLeaoK
+\unrestrict DOJgX9of47eWmLQIFlHOWWYxlYpa3c7kcttwQxinBVKCu22zsHFBBcKcvIzQe0z
 
