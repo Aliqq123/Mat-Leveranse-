@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict DOJgX9of47eWmLQIFlHOWWYxlYpa3c7kcttwQxinBVKCu22zsHFBBcKcvIzQe0z
+\restrict HQoyHKfntShFXUqykLckVZ8YUZ48BtTaYo7mSVw59CeYXeQHKY7WnvLXOZfHCMV
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
 
--- Started on 2026-04-29 13:39:32
+-- Started on 2026-04-29 15:27:19
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -75,7 +75,8 @@ ALTER TABLE public.products OWNER TO postgres;
 CREATE TABLE public.users (
     id integer NOT NULL,
     email character varying(100) NOT NULL,
-    password character varying(100)
+    password character varying(100),
+    userphone integer NOT NULL
 );
 
 
@@ -209,11 +210,11 @@ ALTER TABLE ONLY public.orders
     ADD CONSTRAINT orders_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.products(product_id);
 
 
--- Completed on 2026-04-29 13:39:32
+-- Completed on 2026-04-29 15:27:19
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict DOJgX9of47eWmLQIFlHOWWYxlYpa3c7kcttwQxinBVKCu22zsHFBBcKcvIzQe0z
+\unrestrict HQoyHKfntShFXUqykLckVZ8YUZ48BtTaYo7mSVw59CeYXeQHKY7WnvLXOZfHCMV
 
