@@ -16,7 +16,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/FrontEnd/Before/beforehome.html">
+        <a class="navbar-brand" href="/FrontEnd/Before/beforecart.html">
           <img id="logo" src="../Images/foodie.png" alt="Foodie" />
         </a>
 
@@ -46,10 +46,19 @@
           background-color: white;
         "
       >
-        <h3 class="text-center mb-4">Logga in</h3>
+        <h3 class="text-center mb-4">Sign in</h3>
 
-        <form id="loginForm">
-          
+        <form id="loginForm"> <!-- sign up-->
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">Användarnamn</label>
+            <input
+              type="text"
+              class="form-control"
+              id="loginUsername"
+              placeholder="Ditt användarnamn"
+              required
+            />
+          </div>
 
           <div class="mb-3">
             <label for="loginEmail" class="form-label">E-post</label>
@@ -58,6 +67,18 @@
               class="form-control"
               id="loginEmail"
               placeholder="namn@exempel.se"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="loginPhoneNumber" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="loginPhoneNumber"
+              pattern="^(070|072|073|076|079)[0-9]{7}$" 
+              placeholder="07xxxxxxxx"
               required
             />
           </div>
@@ -74,14 +95,14 @@
           </div>
 
           <button type="submit" class="btn btn-dark w-100 rounded-pill mt-3">
+            Sign in
+          </button>
+        </form>
+        <a href="login.html">
+          <button type="submit" class="btn btn-light w-100 rounded-pill mt-3">
             Logga in
           </button>
-          
-        </form>
-        <a href="sign.html"><button type="submit" class="btn btn-light w-100 rounded-pill mt-3">
-            Sign in
-        </button></a>
-        
+        </a>
       </div>
     </div>
 
