@@ -54,87 +54,75 @@
     </nav>
 
     <br />
-    <div style="display: flex; justify-content: center">
-      <div
-        style="
-          background-color: rgb(223, 223, 223);
-          width: 60vw;
-          height: auto;
-          border: solid black 2px;
-          border-radius: 5px;
-        "
-      >
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            background-color: aquamarine;
-            margin-bottom: 2vh;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              background-color: rgb(0, 155, 104);
-            "
-          >
+
+    <div class="cart-container">
+      <div class="cart-wrapper">
+        <!-- Item 1 -->
+        <div class="cart-item">
+          <div class="item-main">
             <img
               src="/FrontEnd/Images/fatas.jpg"
               alt="food"
-              style="margin-right: 1vw"
+              class="item-image"
             />
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-              "
-            >
+            <div class="item-info">
               <h3>Burger</h3>
-              <p style="align-self: self-start">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa,
-                voluptas! Minus aliquam vitae assumenda excepturi maxime quo
-                sed, magnam cum similique quia iusto molestiae cupiditate eaque
-                explicabo laboriosam illo tempora quos quod eligendi, doloribus
-                obcaecati autem! Consectetur voluptatibus nam asperiores?
+              <p>
+                En saftig burgare med färska råvaror och vår speciella dressing.
+                Perfekt för lunch eller middag.
               </p>
             </div>
           </div>
-          <div><img src="/FrontEnd/Images/trash.png" alt="trash" style="width: 4%; height: 4%;" > <input type="number"></div>
+          <div class="item-controls">
+            <img
+              src="/FrontEnd/Images/trash.png"
+              alt="trash"
+              class="trash-btn"
+            />
+            <div class="quantity-control">
+              <button class="quantity-btn">-</button>
+              <input type="number" value="1" class="quantity-input" />
+              <button class="quantity-btn">+</button>
+            </div>
+          </div>
         </div>
 
-      
-
-        <div
-          style="
-            display: flex;
-            background-color: aquamarine;
-            margin-bottom: 2vh;
-          "
-        >
-          <img
-            src="/FrontEnd/Images/fatas.jpg"
-            alt="food"
-            style="margin-right: 1vw"
-          />
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              width: 100%;
-            "
-          >
-            <h3>Burger</h3>
-            <p style="align-self: self-start">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa,
-              voluptas! Minus aliquam vitae assumenda excepturi maxime quo sed,
-              magnam cum similique quia iusto molestiae cupiditate eaque
-              explicabo laboriosam illo tempora quos quod eligendi, doloribus
-              obcaecati autem! Consectetur voluptatibus nam asperiores?
-            </p>
+        <!-- Item 2 -->
+        <div class="cart-item">
+          <div class="item-main">
+            <img
+              src="/FrontEnd/Images/fatas.jpg"
+              alt="food"
+              class="item-image"
+            />
+            <div class="item-info">
+              <h3>Burger Special</h3>
+              <p>
+                Vår lyxigaste variant med extra allt. Levereras med krispiga
+                tillbehör.
+              </p>
+            </div>
           </div>
+          <div class="item-controls">
+            <img
+              src="/FrontEnd/Images/trash.png"
+              alt="trash"
+              class="trash-btn"
+            />
+            <div class="quantity-control">
+              <button class="quantity-btn">-</button>
+              <input type="number" value="1" class="quantity-input" />
+              <button class="quantity-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-section">
+        <h1>Total: 67$</h1>
+        <div class="checkout-actions">
+          <button class="btn btn-cancel">Avbryt</button>
+          <button class="btn btn-purchase">Gå till kassan</button>
         </div>
       </div>
     </div>

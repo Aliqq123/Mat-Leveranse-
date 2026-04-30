@@ -75,3 +75,105 @@ img{
 }
 
 
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 40px 0;
+}
+.cart-wrapper {
+    width: 80vw;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    background-color: #fff;
+}
+.item-main {
+    display: flex;
+    gap: 20px;
+}
+.item-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.item-info {
+    flex: 1;
+}
+.item-info h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+.item-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+.item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 15px;
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+.quantity-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #009b68;
+    font-weight: bold;
+}
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: bold;
+}
+.trash-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.trash-btn:hover { opacity: 1; }
+.summary-section {
+    text-align: center;
+    margin-top: 30px;
+}
+.checkout-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
+}
+.btn:active { transform: scale(0.98); }
+.btn-cancel { background-color: #eee; color: #555; }
+.btn-purchase { background-color: #009b68; color: white; min-width: 150px; }
