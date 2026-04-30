@@ -11,14 +11,15 @@ html, body {
     margin: 0;
 }
 
+nav.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
 
-.filters-box{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    background-color: #F8F9FA;
-    width: 110px;
-    min-height: 100vh;
+body {
+    padding-top: 60px;
 }
 
 #textkundvagn{
@@ -66,4 +67,44 @@ html, body {
 
 #maintext{
     margin-left: 37%;
+}
+
+.content-row{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 20px 20px 0;
+    margin-left: 260px;
+}
+
+.filters-box{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    margin-left: 0;
+    background-color: #F8F9FA;
+    width: 240px;
+    height: calc(100vh - 60px);
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 998;
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    flex: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.galleryimages {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
