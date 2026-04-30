@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Foodie</title>
-        <link rel="stylesheet" href="/FrontEnd/Home-log-in/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodie</title>
+    <link rel="stylesheet" href="/FrontEnd/Home-log-in/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,9 +13,9 @@
     />
   </head>
   <body>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/FrontEnd/Home/index.html">
+        <a class="navbar-brand" href="/FrontEnd/Home-log-in/home.html">
           <img id="logo" src="../Images/foodie.png" alt="Foodie" />
         </a>
 
@@ -34,14 +34,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/admin/admin.html">
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
             </li>
           </ul>
-        <a class="navbar-brand" href="/FrontEnd/logout-login/login_notlogged.html">
-          <h2 class="buttoninfouser"> Login In </h2>
-        </a>
         </div>
       </div>
     </nav>
+
     <div class="content-row">
       <div class="filters-box">
         <h3>Filter</h3>
@@ -55,9 +66,10 @@
           <input type="checkbox" />
           Kött val
         </label>
+
       </div>
 
-<div class="gallery">
+      <div class="gallery">
         <img class="galleryimages" src="/FrontEnd/Images/lickitung.jpg" alt="food">
         <img class="galleryimages" src="/FrontEnd/Images/lickitung.jpg" alt="food">
         <img class="galleryimages" src="/FrontEnd/Images/lickitung.jpg" alt="food">
@@ -300,5 +312,6 @@
         <img class="galleryimages" src="/FrontEnd/Images/lickitung.jpg" alt="food">
       </div>
     </div>
+    
   </body>
 </html>
