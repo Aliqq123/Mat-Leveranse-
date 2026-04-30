@@ -1,0 +1,77 @@
+body{
+    background-image: url(/FrontEnd/Images/foodie4.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+.filters-box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    background-color: #F8F9FA;
+    width: 110px;
+    min-height: 100vh;
+}
+
+#textkundvagn{
+    margin-left: 28%;
+    font-size: 100px;
+}
+
+#buttoncontinue{
+    margin-left:28%;
+    margin-top: 25%;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+#buttonpaynow{
+        margin-left: 14%;
+        width: 200px;
+        height: 50px;
+        border-radius: 20px;
+}
+
+#textpay{
+    margin-left: 34%;
+}
+
+#logo {
+  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  width: auto;
+}
+
+#cartlogo, #adminlogo, #userlogo {
+  height: 30px; /* Standardstorlek för ikoner */
+  width: auto;
+}
+
+#textnames{
+    margin-left: 6%;
+}
+
+.buttoninfouser{
+    margin-left: 720px;
+    
+}
+
+#maintext{
+    margin-left: 37%;
+}
+
+img{
+    width: 10vw;
+    height: auto;
+    border-radius: 10px;
+}
+
+
