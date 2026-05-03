@@ -1,0 +1,108 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* BODY - förhindra scroll */
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 8px 16px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  height: 40px;
+}
+
+.menu-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ 
+  /* CENTERING */
+  .page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* minus navbar */
+  }
+  
+  /* CARD */
+  .card {
+    width: 400px;
+    height: 380px; /* fast höjd för att undvika scroll */
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 24px;
+    background-color: white;
+  }
+  
+  /* TITLE */
+  .title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  /* FORM */
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  /* BUTTONS */
+  .btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-dark {
+    background-color: black;
+    color: white;
+  }
+  
+  .btn-dark:hover {
+    background-color: #333;
+  }
+  
+  .btn-light {
+    background-color: #f1f1f1;
+  }
+  
+  .btn-light:hover {
+    background-color: #ddd;
+  }
