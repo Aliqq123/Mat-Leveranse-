@@ -12,14 +12,13 @@ html, body {
 }
 
 nav.navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 999;
 }
 
 body {
-    padding-top: 60px;
+    padding-top: 0;
 }
 
 #textkundvagn{
@@ -51,12 +50,18 @@ body {
   width: auto;
 }
 
-#cartlogo, #adminlogo, #userlogo {
+#cartlogo, #adminlogo {
+  height: 30px; /* Standardstorlek för ikoner */
+  width: auto;
+  margin-right: 10px;
+}
+
+#userlogo {
   height: 30px; /* Standardstorlek för ikoner */
   width: auto;
 }
 
-#textnames{
+.textnames{
     margin-left: 6%;
 }
 
