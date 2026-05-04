@@ -1,46 +1,115 @@
-/* RESET */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* BODY - förhindra scroll */
-  body {
-    height: 100vh;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-/* NAVBAR */
-.navbar {
-    width: 100%;
-    background-color: #f8f9fa;
-    padding: 8px 16px;
-  }
-  
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  #logo {
-    height: 40px;
-  }
-  
-  .menu-toggle {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-#creatings{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 60px); /* hela skärmen minus navbar */
-
+body{
+  background-image: url(/FrontEnd/Images/foodie4.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+nav.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+body {
+  padding-top: 0;
+}
+
+#textkundvagn{
+  margin-left: 28%;
+  font-size: 100px;
+}
+
+#buttoncontinue{
+  margin-left:28%;
+  margin-top: 25%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+#buttonpaynow{
+      margin-left: 14%;
+      width: 200px;
+      height: 50px;
+      border-radius: 20px;
+}
+
+#textpay{
+  margin-left: 34%;
+}
+
+#logo {
+height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+width: auto;
+}
+
+#cartlogo, #adminlogo {
+height: 30px; /* Standardstorlek för ikoner */
+width: auto;
+margin-right: 10px;
+}
+
+#userlogo {
+height: 30px; /* Standardstorlek för ikoner */
+width: auto;
+}
+
+.textnames{
+  margin-left: 6%;
+}
+
+.buttoninfouser{
+  margin-left: 720px;
   
+}
+
+#maintext{
+  margin-left: 37%;
+}
+
+.content-row{
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 20px 20px 0;
+  margin-left: 260px;
+}
+
+.filters-box{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  margin-left: 0;
+  background-color: #F8F9FA;
+  width: 240px;
+  height: calc(100vh - 60px);
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 998;
+}
+
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  flex: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.galleryimages {
+width: 100%;
+height: auto;
+display: block;
+object-fit: cover;
+border-radius: 8px;
+}
