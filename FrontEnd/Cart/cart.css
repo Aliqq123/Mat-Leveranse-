@@ -1,179 +1,229 @@
-body{
-    background-image: url(/FrontEnd/Images/foodie4.png);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/* ================================================
+   cart.css — Styling för kundvagnssidan
+   ================================================ */
 
+
+/* ---- Grundläggande sidlayout ---- */
 html, body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* Bakgrundsbild som täcker hela sidan */
+  background-image: url(/FrontEnd/Images/foodie4.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
-.filters-box{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    background-color: #F8F9FA;
-    width: 110px;
-    min-height: 100vh;
-}
-
-#textkundvagn{
-    margin-left: 28%;
-    font-size: 100px;
-}
-
-#buttoncontinue{
-    margin-left:28%;
-    margin-top: 25%;
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-}
-
-#buttonpaynow{
-        margin-left: 14%;
-        width: 200px;
-        height: 50px;
-        border-radius: 20px;
-}
-
-#textpay{
-    margin-left: 34%;
-}
-
+/* ---- Navbar-logotyper ---- */
 #logo {
-  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  height: 50px;
   width: auto;
 }
 
-#cartlogo, #adminlogo, #userlogo {
-  height: 30px; /* Standardstorlek för ikoner */
+#cartlogo,
+#adminlogo,
+#userlogo {
+  height: 30px;
   width: auto;
 }
 
-#textnames{
-    margin-left: 6%;
+
+/* ---- Äldre CSS-element (ej i nuvarande layout, behålls för bakåtkompatibilitet) ---- */
+.filters-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  background-color: #F8F9FA;
+  width: 110px;
+  min-height: 100vh;
 }
 
-.buttoninfouser{
-    margin-left: 720px;
-    
+#textkundvagn {
+  margin-left: 28%;
+  font-size: 100px;
 }
 
-#maintext{
-    margin-left: 37%;
+#buttoncontinue {
+  margin-left: 28%;
+  margin-top: 25%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
 }
 
-img{
-    width: 10vw;
-    height: auto;
-    border-radius: 10px;
+#buttonpaynow {
+  margin-left: 14%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+#textpay {
+  margin-left: 34%;
+}
+
+#textnames {
+  margin-left: 6%;
+}
+
+.buttoninfouser {
+  margin-left: 720px;
+}
+
+#maintext {
+  margin-left: 37%;
 }
 
 
+/* ---- Kundvagnslayout ---- */
 .cart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 0;
 }
+
+/* Vit kortbehållare för artiklarna */
 .cart-wrapper {
-    width: 80vw;
-    max-width: 800px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    overflow: hidden;
+  width: 80vw;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
+
+
+/* ---- Enskild kundvagnsartikel ---- */
 .cart-item {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #eee;
-    padding: 20px;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  background-color: #fff;
 }
+
+/* Bild + info sida vid sida */
 .item-main {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
+
 .item-image {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
 }
+
 .item-info {
-    flex: 1;
+  flex: 1;
 }
+
 .item-info h3 {
-    margin: 0 0 10px 0;
-    color: #333;
+  margin: 0 0 10px 0;
+  color: #333;
 }
+
 .item-info p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
 }
+
+
+/* ---- Kontroller (ta bort + antal) ---- */
 .item-controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 15px;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 15px;
 }
+
+/* Antals-kontroll-pill */
 .quantity-control {
-    display: flex;
-    align-items: center;
-    background: #f1f1f1;
-    border-radius: 20px;
-    padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 20px;
+  padding: 5px 15px;
 }
+
 .quantity-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0 10px;
-    color: #009b68;
-    font-weight: bold;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 10px;
+  color: #009b68;
+  font-weight: bold;
 }
+
 .quantity-input {
-    width: 40px;
-    text-align: center;
-    border: none;
-    background: transparent;
-    font-weight: bold;
+  width: 40px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-weight: bold;
 }
+
+/* Papperskorg-ikon */
 .trash-btn {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
 }
-.trash-btn:hover { opacity: 1; }
+
+.trash-btn:hover {
+  opacity: 1;
+}
+
+
+/* ---- Summering ---- */
 .summary-section {
-    text-align: center;
-    margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
 }
+
 .checkout-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
+
+
+/* ---- Knappar ---- */
 .btn {
-    padding: 12px 25px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.1s;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s;
 }
-.btn:active { transform: scale(0.98); }
-.btn-cancel { background-color: #eee; color: #555; }
-.btn-purchase { background-color: #009b68; color: white; min-width: 150px; }
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Avbryt-knapp */
+.btn-cancel {
+  background-color: #eee;
+  color: #555;
+}
+
+/* Kassaknapp */
+.btn-purchase {
+  background-color: #009b68;
+  color: white;
+  min-width: 150px;
+}

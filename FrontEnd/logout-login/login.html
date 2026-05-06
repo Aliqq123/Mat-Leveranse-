@@ -1,94 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logga in — Foodie</title>
 
-    <link rel="stylesheet" href="/FrontEnd/logout-login/log.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/FrontEnd/Home/index.html">
-          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
-        </a>
+  <!-- Inloggningsstyling -->
+  <link rel="stylesheet" href="/FrontEnd/logout-login/log.css" />
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
 
-    <div style="display: flex; justify-content: center; margin-top: 5vh">
-      <div
-        style="
-          width: 30vw;
-          min-width: 300px;
-          min-height: 60vh;
-          border: 2px solid black;
-          border-radius: 30px;
-          padding: 2rem;
-          background-color: white;
-        "
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+
+      <!-- Logotyp länkad till gäst-startsida -->
+      <a class="navbar-brand" href="/FrontEnd/Home/index.html">
+        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+      </a>
+
+      <!-- Hamburgarmeny för mobil -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-        <h3 class="text-center mb-4">Logga in</h3>
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <form id="loginForm">
-          
-
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label">E-post</label>
-            <input
-              type="email"
-              class="form-control"
-              id="loginEmail"
-              placeholder="namn@exempel.se"
-              required
-            />
-          </div>
-
-          <div class="mb-4">
-            <label for="loginPassword" class="form-label">Lösenord</label>
-            <input
-              type="password"
-              class="form-control"
-              id="loginPassword"
-              placeholder="********"
-              required
-            />
-          </div>
-
-          <button type="submit" class="btn btn-dark w-100 rounded-pill mt-3">
-            Logga in
-          </button>
-          
-        </form>
-        <a href="sign.html"><button type="submit" class="btn btn-light w-100 rounded-pill mt-3">
-            Sign in
-        </button></a>
-        
-      </div>
     </div>
+  </nav>
+  <!-- ====== SLUT NAVBAR ====== -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- ====== INLOGGNINGSFORMULÄR ====== -->
+  <!-- Backend: formuläret POST:ar email + lösenord för autentisering -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <h3 class="text-center mb-4">Logga in</h3>
+
+      <form id="login-form">
+
+        <!-- E-postfält — id används av backend-validering -->
+        <div class="mb-3">
+          <label for="login-email" class="form-label">E-post</label>
+          <input
+            type="email"
+            class="form-control"
+            id="login-email"
+            name="email"
+            placeholder="namn@exempel.se"
+            required
+          />
+        </div>
+
+        <!-- Lösenordsfält -->
+        <div class="mb-4">
+          <label for="login-password" class="form-label">Lösenord</label>
+          <input
+            type="password"
+            class="form-control"
+            id="login-password"
+            name="password"
+            placeholder="********"
+            required
+          />
+        </div>
+
+        <!-- Inloggningsknapp -->
+        <button type="submit" class="btn btn-dark w-100 rounded-pill mt-3">
+          Logga in
+        </button>
+
+      </form>
+
+      <!-- Länk till registreringssidan -->
+      <a href="sign.html">
+        <button type="button" class="btn btn-light w-100 rounded-pill mt-3">
+          Sign in
+        </button>
+      </a>
+
+    </div>
+  </div>
+  <!-- ====== SLUT INLOGGNINGSFORMULÄR ====== -->
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+</body>
 </html>

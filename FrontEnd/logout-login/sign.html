@@ -1,87 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrera — Foodie</title>
 
-    <link rel="stylesheet" href="/FrontEnd/logout-login/log.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+  <!-- Inloggningsstyling (delas med login.html) -->
+  <link rel="stylesheet" href="/FrontEnd/logout-login/log.css" />
 
-    <style>
-      body {
-        height: 100vh;
-        overflow: hidden;
-      }
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
 
-      .center-wrapper {
-        height: calc(100vh - 60px); /* minus navbar */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
 
-      .card-box {
-        width: 400px;
-        height: 520px;
-        border: 2px solid black;
-        border-radius: 30px;
-        padding: 30px;
-        background-color: white;
-      }
-    </style>
-  </head>
+      <!-- Logotyp länkad till gäst-startsida -->
+      <a class="navbar-brand" href="/FrontEnd/Home/index.html">
+        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+      </a>
 
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/FrontEnd/Home/index.html">
-          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
-        </a>
-      </div>
-    </nav>
-
-    <div class="center-wrapper">
-      <div class="card-box">
-        <h3 class="text-center mb-3">Sign in</h3>
-
-        <form id="loginForm">
-          <div class="mb-2">
-            <label for="loginUsername" class="form-label">Användarnamn</label>
-            <input type="text" class="form-control" required />
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">E-post</label>
-            <input type="email" class="form-control" required />
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" required />
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Lösenord</label>
-            <input type="password" class="form-control" required />
-          </div>
-
-          <button type="submit" class="btn btn-dark w-100 rounded-pill">
-            Sign in
-          </button>
-        </form>
-
-        <a href="login.html">
-          <button class="btn btn-light w-100 rounded-pill mt-2">
-            Logga in
-          </button>
-        </a>
-      </div>
     </div>
+  </nav>
+  <!-- ====== SLUT NAVBAR ====== -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- ====== REGISTRERINGSFORMULÄR ====== -->
+  <!-- Backend: formuläret POST:ar användardata för att skapa nytt konto -->
+  <div class="center-wrapper">
+    <div class="auth-card">
+
+      <h3 class="text-center mb-3">Sign in</h3>
+
+      <form id="register-form">
+
+        <!-- Användarnamn -->
+        <div class="mb-2">
+          <label for="register-username" class="form-label">Användarnamn</label>
+          <input
+            type="text"
+            class="form-control"
+            id="register-username"
+            name="username"
+            required
+          />
+        </div>
+
+        <!-- E-post -->
+        <div class="mb-2">
+          <label for="register-email" class="form-label">E-post</label>
+          <input
+            type="email"
+            class="form-control"
+            id="register-email"
+            name="email"
+            required
+          />
+        </div>
+
+        <!-- Telefonnummer -->
+        <div class="mb-2">
+          <label for="register-phone" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="register-phone"
+            name="phone"
+            required
+          />
+        </div>
+
+        <!-- Lösenord -->
+        <div class="mb-3">
+          <label for="register-password" class="form-label">Lösenord</label>
+          <input
+            type="password"
+            class="form-control"
+            id="register-password"
+            name="password"
+            required
+          />
+        </div>
+
+        <!-- Registreringsknapp -->
+        <button type="submit" class="btn btn-dark w-100 rounded-pill">
+          Sign in
+        </button>
+
+      </form>
+
+      <!-- Länk tillbaka till inloggningssidan -->
+      <a href="login.html">
+        <button type="button" class="btn btn-light w-100 rounded-pill mt-2">
+          Logga in
+        </button>
+      </a>
+
+    </div>
+  </div>
+  <!-- ====== SLUT REGISTRERINGSFORMULÄR ====== -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -1,4 +1,17 @@
-body{
+/* ================================================
+   user.css — Styling för användarprofil-sidan
+   ================================================ */
+
+
+/* ---- Grundläggande sidlayout ---- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding-top: 0;
+}
+
+body {
+  /* Bakgrundsbild som täcker hela sidan */
   background-image: url(/FrontEnd/Images/foodie4.png);
   background-size: cover;
   background-attachment: fixed;
@@ -6,75 +19,81 @@ body{
   background-repeat: no-repeat;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
 
+/* ---- Navbar ---- */
 nav.navbar {
   position: sticky;
   top: 0;
   z-index: 999;
 }
 
-body {
-  padding-top: 0;
+
+/* ---- Navbar-logotyper ---- */
+#logo {
+  height: 50px;
+  width: auto;
 }
 
-#textkundvagn{
+#cartlogo,
+#adminlogo {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+#userlogo {
+  height: 30px;
+  width: auto;
+}
+
+
+/* ---- Användarprofil ---- */
+/* Namn och kontaktinfo under profilbilden */
+.textnames {
+  margin-left: 6%;
+}
+
+/* Profilbild */
+#profile-picture {
+  display: block;
+}
+
+
+/* ---- Äldre/reserverade CSS-element ---- */
+/* Behålls för bakåtkompatibilitet med delade stilar */
+.buttoninfouser {
+  margin-left: 720px;
+}
+
+#textkundvagn {
   margin-left: 28%;
   font-size: 100px;
 }
 
-#buttoncontinue{
-  margin-left:28%;
+#buttoncontinue {
+  margin-left: 28%;
   margin-top: 25%;
   width: 200px;
   height: 50px;
   border-radius: 20px;
 }
 
-#buttonpaynow{
-      margin-left: 14%;
-      width: 200px;
-      height: 50px;
-      border-radius: 20px;
+#buttonpaynow {
+  margin-left: 14%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
 }
 
-#textpay{
+#textpay {
   margin-left: 34%;
 }
 
-#logo {
-height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
-width: auto;
-}
-
-#cartlogo, #adminlogo {
-height: 30px; /* Standardstorlek för ikoner */
-width: auto;
-margin-right: 10px;
-}
-
-#userlogo {
-height: 30px; /* Standardstorlek för ikoner */
-width: auto;
-}
-
-.textnames{
-  margin-left: 6%;
-}
-
-.buttoninfouser{
-  margin-left: 720px;
-  
-}
-
-#maintext{
+#maintext {
   margin-left: 37%;
 }
 
-.content-row{
+.content-row {
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -82,13 +101,12 @@ width: auto;
   margin-left: 260px;
 }
 
-.filters-box{
+.filters-box {
   display: flex;
   flex-direction: column;
   position: fixed;
   left: 0;
   top: 60px;
-  margin-left: 0;
   background-color: #F8F9FA;
   width: 240px;
   height: calc(100vh - 60px);
@@ -97,19 +115,17 @@ width: auto;
   z-index: 998;
 }
 
-.gallery{
+.gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
   flex: 1;
-  margin-left: 0;
-  margin-bottom: 0;
 }
 
-.galleryimages {
-width: 100%;
-height: auto;
-display: block;
-object-fit: cover;
-border-radius: 8px;
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }

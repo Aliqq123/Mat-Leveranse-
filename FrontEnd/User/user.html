@@ -1,47 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-    <link rel="stylesheet" href="user.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User</title>
 
+  <!-- Användarprofil-styling -->
+  <link rel="stylesheet" href="user.css" />
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a href="/FrontEnd/Home-log-in/home.html">
-  <img id="logo" src="../Images/foodie.png" alt="Foodie">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <a href="/FrontEnd/Cart/cart.html">
-            <img id="cartlogo" src="../Images/cart.png" alt="cart">
-        </a>
-        </li>
-        <li class="nav-item">
-            <a href="/FrontEnd/admin/admin.html">
-          <img id="adminlogo" src="../Images/admin.png" alt="admin">
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="/FrontEnd/User/user.html">
-          <img id="userlogo" src="../Images/user.png" alt="user">
-            </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<img src="/FrontEnd/Images/user2.png" alt="Profile">
-<h1 class="textnames"> Name Lastname</h1>
-<h3 class="textnames"> Telefon: 0793149013</h3>
-    
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+
+      <!-- Logotyp länkad till inloggad startsida -->
+      <a href="/FrontEnd/Home-log-in/home.html">
+        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+      </a>
+
+      <!-- Hamburgarmeny för mobil -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Länk till kundvagn -->
+          <li class="nav-item">
+            <a href="/FrontEnd/Cart/cart.html">
+              <img id="cartlogo" src="../Images/cart.png" alt="cart" />
+            </a>
+          </li>
+
+          <!-- Länk till adminpanel -->
+          <li class="nav-item">
+            <a href="/FrontEnd/admin/admin.html">
+              <img id="adminlogo" src="../Images/admin.png" alt="admin" />
+            </a>
+          </li>
+
+          <!-- Länk till användarprofil (aktuell sida) -->
+          <li class="nav-item">
+            <a href="/FrontEnd/User/user.html">
+              <img id="userlogo" src="../Images/user.png" alt="user" />
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ====== SLUT NAVBAR ====== -->
+
+  <!-- ====== ANVÄNDARPROFIL ====== -->
+  <!-- Backend: profildata hämtas via session och injiceras i elementen nedan -->
+  <section id="user-profile-section">
+
+    <!-- Profilbild — backend ersätter src med användarens uppladdade bild -->
+    <img
+      id="profile-picture"
+      src="/FrontEnd/Images/user2.png"
+      alt="Profile"
+    />
+
+    <!-- Namn — backend fyller i värdet -->
+    <h1 class="textnames" id="user-display-name">Name Lastname</h1>
+
+    <!-- Telefonnummer — backend fyller i värdet -->
+    <h3 class="textnames" id="user-phone">Telefon: 0793149013</h3>
+
+  </section>
+  <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
+
 </body>
 </html>

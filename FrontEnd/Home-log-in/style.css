@@ -1,115 +1,141 @@
-body{
-    background-image: url(/FrontEnd/Images/foodie4.png);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/* ================================================
+   style.css — Delad layout-styling för Foodie
+   Används av: Home/index.html, Home-log-in/home.html,
+               Home-log-in/userlog-in.html
+   ================================================ */
 
+
+/* ---- Grundläggande sidlayout ---- */
 html, body {
-    height: 100%;
-    margin: 0;
-}
-
-nav.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  height: 100%;
+  margin: 0;
+  padding-top: 0;
 }
 
 body {
-    padding-top: 0;
+  /* Bakgrundsbild som täcker hela sidan */
+  background-image: url(/FrontEnd/Images/foodie4.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#textkundvagn{
-    margin-left: 28%;
-    font-size: 100px;
+
+/* ---- Navbar ---- */
+nav.navbar {
+  /* Sticky navbar — ligger alltid överst vid scroll */
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-#buttoncontinue{
-    margin-left:28%;
-    margin-top: 25%;
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-}
 
-#buttonpaynow{
-        margin-left: 14%;
-        width: 200px;
-        height: 50px;
-        border-radius: 20px;
-}
-
-#textpay{
-    margin-left: 34%;
-}
-
+/* ---- Navbar-logotyper ---- */
 #logo {
-  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  height: 50px;
   width: auto;
 }
 
-#cartlogo, #adminlogo {
-  height: 30px; /* Standardstorlek för ikoner */
+#cartlogo,
+#adminlogo {
+  height: 30px;
   width: auto;
   margin-right: 10px;
 }
 
 #userlogo {
-  height: 30px; /* Standardstorlek för ikoner */
+  height: 30px;
   width: auto;
 }
 
-.textnames{
-    margin-left: 6%;
+
+/* ---- Login-knapp i navbar (gäst-vy) ---- */
+.buttoninfouser {
+  margin-left: 720px;
 }
 
-.buttoninfouser{
-    margin-left: 720px;
-    
+
+/* ---- Sidans huvudinnehåll ---- */
+/* Wrapper som håller filter-spalt och galleri sida vid sida */
+.content-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 20px 20px 0;
+  margin-left: 260px; /* Lämnar plats för den fasta filter-spalten */
 }
 
-#maintext{
-    margin-left: 37%;
+
+/* ---- Filterpanel (fast vänsterspalt) ---- */
+.filters-box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 60px; /* Under navbar */
+  background-color: #F8F9FA;
+  width: 240px;
+  height: calc(100vh - 60px);
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 998;
 }
 
-.content-row{
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    padding: 20px 20px 20px 0;
-    margin-left: 260px;
+
+/* ---- Matgalleri ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  flex: 1;
 }
 
-.filters-box{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 60px;
-    margin-left: 0;
-    background-color: #F8F9FA;
-    width: 240px;
-    height: calc(100vh - 60px);
-    padding: 16px;
-    box-sizing: border-box;
-    z-index: 998;
-}
-
-.gallery{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    flex: 1;
-    margin-left: 0;
-    margin-bottom: 0;
-}
-
-.galleryimages {
+/* Enskild bild i galleriet */
+.gallery-image {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
   border-radius: 8px;
+}
+
+
+/* ---- Kundvagnssida — textpositionering ---- */
+/* Rubrik "Kundvagn" */
+#textkundvagn {
+  margin-left: 28%;
+  font-size: 100px;
+}
+
+/* Knappen "Fortsätt handla" */
+#buttoncontinue {
+  margin-left: 28%;
+  margin-top: 25%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+/* Knappen "Betala nu" */
+#buttonpaynow {
+  margin-left: 14%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+/* Text ovanför betalknappen */
+#textpay {
+  margin-left: 34%;
+}
+
+/* Huvudrubrik på sidan */
+#maintext {
+  margin-left: 37%;
+}
+
+/* Användarens namn/kontaktinfo på profilsidan */
+.textnames {
+  margin-left: 6%;
 }

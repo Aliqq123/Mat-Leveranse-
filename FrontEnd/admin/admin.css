@@ -1,10 +1,47 @@
-/* Lägg in detta i din /FrontEnd/Home/style.css */
+/* ================================================
+   admin.css — Styling för adminpanelen (inventory)
+   ================================================ */
+
+
+/* ---- Grundläggande sidlayout ---- */
+body {
+  background-color: #f8f9fa; /* Ljusgrå bakgrund */
+}
+
+
+/* ---- Navbar-logotyper ---- */
 #logo {
-  height: 50px; /* Ändra till en storlek som ser bra ut för din logga */
+  height: 50px;
   width: auto;
 }
 
-#cartlogo, #adminlogo, #userlogo {
-  height: 30px; /* Standardstorlek för ikoner */
+#cartlogo,
+#adminlogo,
+#userlogo {
+  height: 30px;
   width: auto;
+}
+
+
+/* ---- Lagertabell ---- */
+/* Wrapper begränsar tabellbredden till 80vw */
+.inventory-table-wrapper {
+  width: 100%;
+  max-width: 80vw;
+}
+
+
+/* ---- Statusmeddelanden (används av JS/backend) ---- */
+#msg {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Anpassade success/error-färger om Bootstrap-defaults inte räcker */
+.text-success-custom {
+  color: #198754;
+}
+
+.text-danger-custom {
+  color: #dc3545;
 }
