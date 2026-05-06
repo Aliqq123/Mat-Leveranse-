@@ -139,3 +139,11 @@ nav.navbar {
 .textnames {
   margin-left: 6%;
 }
+
+.LogSign{
+  color: rgb(94, 94, 94);
+}
+
+.LogSign:hover{
+  color: rgb(0, 0, 0);
+}

@@ -227,3 +227,19 @@ body {
   color: white;
   min-width: 150px;
 }
+
+#btn-cancel{
+  background-color: rgba(165, 42, 42, 0.415);
+}
+
+#btn-checkout{
+  background-color: rgba(0, 128, 0, 0.477);
+}
+
+#btn-cancel:hover{
+  background-color: brown;
+}
+
+#btn-checkout:hover{
+  background-color: green;
+}
