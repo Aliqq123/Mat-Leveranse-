@@ -9,7 +9,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding-top: 0;
+  padding-top: 60px;
 }
 
 body {
@@ -24,9 +24,11 @@ body {
 
 /* ---- Navbar ---- */
 nav.navbar {
-  /* Sticky navbar — ligger alltid överst vid scroll */
-  position: sticky;
+  /* Fixed navbar — ligger alltid överst och syns vid scroll */
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 999;
 }
 
@@ -91,13 +93,52 @@ nav.navbar {
   flex: 1;
 }
 
-/* Enskild bild i galleriet */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.08);
+}
+
 .gallery-image {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 4px;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.gallery-overlay p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 
