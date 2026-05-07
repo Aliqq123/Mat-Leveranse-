@@ -203,7 +203,7 @@ nav.navbar {
 /* 4. CSS for the Small Centered Box */
 .modal-content {
   background-color: white;
-  margin: 10% auto; /* 15% from top, centered */
+  margin: 5% auto; /* 15% from top, centered */
   padding: 20px;
   width: 100%;
   max-width: 1000px; /* Small size */
