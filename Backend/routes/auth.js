@@ -1,61 +1,50 @@
-// LOGIN
-const loginForm = document.getElementById("loginForm");
+server.post("/register", async (req, res) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+  const phone = req.body.phone;
 
-if (loginForm && document.getElementById("loginEmail")) {
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  try {
+    const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [
+      email,
+    ]);
 
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-
-    const res = await fetch("/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      // redirect till home
-      window.location.href = "/FrontEnd/Home-log-in/home.html";
+    if (checkResult.rows.length > 0) {
+      res.send("Email already exists. Try logging in.");
     } else {
-      alert(data.message);
+      const result = await db.query(
+        "INSERT INTO users (username, email, password, phone) VALUES ($1, $2, $3, $4)",
+        [username, email, password, phone]
+      );
+      console.log(result);
+      res.render("home.html");
     }
-  });
-}
+  } catch (err) {
+    console.log(err);
+  }
+});
 
-// SIGNUP
-if (loginForm && document.getElementById("loginUsername")) {
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+server.post("/login", async (req, res) => {
+  const email = req.body.username;
+  const password = req.body.password;
 
-    const username = document.getElementById("loginUsername").value;
-    const email = document.getElementById("loginEmail").value;
-    const phone = document.getElementById("loginPhoneNumber").value;
-    const password = document.getElementById("loginPassword").value;
+  try {
+    const result = await db.query("SELECT * FROM users WHERE email = $1", [
+      email,
+    ]);
+    if (result.rows.length > 0) {
+      const user = result.rows[0];
+      const storedPassword = user.password;
 
-    const res = await fetch("/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, email, phone, password }),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      // redirect till user page
-      window.location.href = "/FrontEnd/user/user.html";
+      if (password === storedPassword) {
+        res.render("home.html");
+      } else {
+        res.send("Incorrect Password");
+      }
     } else {
-      alert(data.message || "Error");
+      res.send("User not found");
     }
-  });
-}
+  } catch (err) {
+    console.log(err);
+  }
+});
