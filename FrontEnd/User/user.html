@@ -23,7 +23,7 @@
     <div class="container-fluid">
 
       <!-- Logotyp länkad till inloggad startsida -->
-      <a href="/FrontEnd/Home-log-in/home.html">
+      <a class="navbar-brand" href="/FrontEnd/Home-log-in/home.html">
         <img id="logo" src="../Images/foodie.png" alt="Foodie" />
       </a>
 
@@ -45,22 +45,22 @@
 
           <!-- Länk till kundvagn -->
           <li class="nav-item">
-            <a href="/FrontEnd/Cart/cart.html">
-              <img id="cartlogo" src="../Images/cart.png" alt="cart" />
+            <a class="nav-link" href="/FrontEnd/Cart/cart.html">
+              <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
             </a>
           </li>
 
           <!-- Länk till adminpanel -->
           <li class="nav-item">
-            <a href="/FrontEnd/admin/admin.html">
-              <img id="adminlogo" src="../Images/admin.png" alt="admin" />
+            <a class="nav-link" id="nav-admin-link" href="/FrontEnd/admin/admin.html">
+              <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
             </a>
           </li>
 
           <!-- Länk till användarprofil (aktuell sida) -->
           <li class="nav-item">
-            <a href="/FrontEnd/User/user.html">
-              <img id="userlogo" src="../Images/user.png" alt="user" />
+            <a class="nav-link" href="/FrontEnd/User/user.html">
+              <img id="userlogo" src="../Images/user.png" alt="User" />
             </a>
           </li>
 
@@ -74,20 +74,36 @@
   <!-- Backend: profildata hämtas via session och injiceras i elementen nedan -->
   <section id="user-profile-section">
 
-    <!-- Profilbild — backend ersätter src med användarens uppladdade bild -->
-    <img
-      id="profile-picture"
-      src="/FrontEnd/Images/user2.png"
-      alt="Profile"
-    />
+    <!-- Profilbild med ändra-knapp -->
+    <div class="profile-picture-container">
+      <img
+        id="profile-picture"
+        src="/FrontEnd/Images/user2.png"
+        alt="Profile"
+      />
+      <button class="btn btn-outline-light btn-sm change-btn">Ändra</button>
+    </div>
 
-    <!-- Namn — backend fyller i värdet -->
-    <h1 class="textnames" id="user-display-name">Name Lastname</h1>
+    <!-- Namn -->
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="user-name-input" value="Name Lastname">
+      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
+    </div>
 
-    <!-- Telefonnummer — backend fyller i värdet -->
-    <h3 class="textnames" id="user-phone">Telefon: 0793149013</h3>
+    <!-- Email -->
+    <div class="input-group mb-3">
+      <input type="email" class="form-control" id="user-email-input" value="abasicuser@gmail.com">
+      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
+    </div>
+
+    <!-- Mobilnummer -->
+    <div class="input-group mb-3">
+      <input type="tel" class="form-control" id="user-phone-input" value="+460793149013">
+      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
+    </div>
 
   </section>
+
   <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
 
 </body>

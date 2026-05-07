@@ -26,7 +26,12 @@ body {
 }
 
 #cartlogo,
-#adminlogo,
+#adminlogo {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
 #userlogo {
   height: 30px;
   width: auto;
@@ -166,6 +171,10 @@ body {
   font-weight: bold;
 }
 
+.quantity-btn:hover{
+  color: #006846;
+}
+
 .quantity-input {
   width: 40px;
   text-align: center;
@@ -243,3 +252,4 @@ body {
 #btn-checkout:hover{
   background-color: green;
 }
+
