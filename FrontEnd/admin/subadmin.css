@@ -11,7 +11,12 @@
 }
 
 #cartlogo,
-#adminlogo,
+#adminlogo {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
 #userlogo {
   height: 30px;
   width: auto;
