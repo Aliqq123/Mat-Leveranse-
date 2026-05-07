@@ -14,7 +14,7 @@ html, body {
 
 body {
   /* Bakgrundsbild som täcker hela sidan */
-  background-image: url(/FrontEnd/Images/foodie4.png);
+  background-image: url(../Images/foodie4.png);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

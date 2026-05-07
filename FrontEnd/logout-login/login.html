@@ -6,7 +6,7 @@
   <title>Logga in — Foodie</title>
 
   <!-- Inloggningsstyling -->
-  <link rel="stylesheet" href="/FrontEnd/logout-login/log.css" />
+  <link rel="stylesheet" href="../logout-login/log.css" />
 
   <!-- Bootstrap 5 -->
   <link
@@ -103,5 +103,55 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"
   ></script>
+
+     <!--samma sak gäller, ta inte bort denna script, den tillhör för log in-->
+
+  <script>
+    const loginForm =
+      document.getElementById("login-form");
+    
+    
+    loginForm.addEventListener(
+      "submit",
+      async (e) => {
+    
+        e.preventDefault();
+    
+        const email =
+          document.getElementById(
+            "login-email"
+          ).value;
+    
+        const password =
+          document.getElementById(
+            "login-password"
+          ).value;
+    
+    
+        const response = await fetch(
+          "/api/users/login",
+          {
+            method: "POST",
+    
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+    
+            body: JSON.stringify({
+              email,
+              password
+            })
+          }
+        );
+    
+        const data = await response.json();
+    
+        alert(data.message);
+    
+      }
+    );
+    
+    </script>
 </body>
 </html>

@@ -1,59 +1,48 @@
 import express from "express";
-import { Client } from "pg";
-import dotenv from "dotenv"
-
-dotenv.config();
+import path from "path";
+import { fileURLToPath } from "url";
+import userRoutes from "./routes/userRoute.js";
 
 const server = express();
 const port = 3000;
 
+
+// FIX för __dirname i ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+// Middleware
 server.use(express.json());
+// router in work
+server.use("/api/users", userRoutes);
 
-const db = new Client({
-  user: process.env.postgres,
-  host: process.env.host,
-  database: process.env.database,
-  password: process.env.password,
-  port: process.env.port
+
+// Gör FrontEnd-mappen offentlig
+server.use(express.static(path.join(__dirname, "../FrontEnd")));
+
+
+// VISA HOME/index.html
+server.get("/", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../FrontEnd/Home/index.html")
+  );
+
 });
 
-db.connect()
-  .then(() => console.log("Connected to PostgreSQL"))
-  .catch(err => console.log(err));
-
-server.use(express.urlencoded({ extended: true }));
-server.use(express.static("public"));
-
-
-// USERS
-server.get("/users", async (req, res) => {
-  try {
-    const result = await db.query("SELECT * FROM users");
-    res.json(result.rows);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
+// VISA HOME/loging.html
+server.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../FrontEnd/logout-login/login.html")
+  );
 });
 
-// PRODUCTS
-server.get("/products", async (req, res) => {
-  try {
-    const result = await db.query("SELECT * FROM products");
-    res.json(result.rows);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
+// SIGN UP 
+server.get("/sign", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../FrontEnd/logout-login/sign.html")
+  );
 });
 
-// ORDERS
-server.get("/orders", async (req, res) => {
-  try {
-    const result = await db.query("SELECT * FROM orders");
-    res.json(result.rows);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
 
 server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
