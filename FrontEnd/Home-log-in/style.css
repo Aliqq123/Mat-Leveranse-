@@ -223,3 +223,52 @@ nav.navbar {
 #FOODPIC:hover{
     transform: scale(0.95);
 }
+
+
+#goddess{
+ /* Use a thick, rounded font like 'Fredoka One' or 'Bubblegum Sans' */
+  font-family: 'Fredoka One', 'Rounded Mplus 1c', cursive;
+  font-size: 4rem;
+  text-align: center;
+  
+  /* Yummy Jelly-Bean Colors */
+  background: linear-gradient(
+    to bottom, 
+    #FF5E5B 20%, /* Strawberry */
+    #FFED66 50%, /* Banana/Cheese */
+    #FF8C42 80%  /* Orange */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* The "Chomp & Bounce" Animation */
+  display: inline-block;
+  animation: yumChomp 1.2s ease-in-out infinite;
+  
+  /* Add a soft 'frosting' drop shadow */
+  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+}
+
+@keyframes yumChomp {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  30% {
+    /* The "Chomp" down - letters squash */
+    transform: translateY(10px) scaleY(0.8) scaleX(1.1);
+  }
+  60% {
+    /* The "Yum" up - letters stretch and jump */
+    transform: translateY(-25px) scaleY(1.2) scaleX(0.9);
+  }
+}
+
+#modelback{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradientShift 15s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
