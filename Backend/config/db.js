@@ -5,7 +5,7 @@ dotenv.config();
 
 const { Client } = pg;
 
-const db = new pg.pool({
+const db = new pg.Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
