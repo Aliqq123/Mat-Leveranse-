@@ -1,5 +1,7 @@
 import express from "express";
 
+
+// Importerar nödvändiga info from usercontroller 
 import {
   registerUser,
   loginUser
