@@ -1,181 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin — Hantera produkter</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Hantera produkter</title>
 
-  <!-- Subadmin-styling -->
-  <link rel="stylesheet" href="subadmin.css" />
+    <!-- Subadmin-styling -->
+    <link rel="stylesheet" href="subadmin.css" />
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-</head>
-<body>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- Logotyp -->
+        <a class="navbar-brand" href="/FrontEnd/Home-log-in/home.html">
+          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+        </a>
 
-  <!-- ====== NAVBAR ====== -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-
-      <!-- Logotyp -->
-      <a class="navbar-brand" href="/FrontEnd/Home-log-in/home.html">
-        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
-      </a>
-
-      <!-- Hamburgarmeny för mobil -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <!-- Länk till kundvagn -->
-          <li class="nav-item">
-            <a class="nav-link" href="/FrontEnd/Cart/cart.html">
-              <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
-            </a>
-          </li>
-
-          <!-- Länk till admin-inventory (föregående admin-sida) -->
-          <li class="nav-item">
-            <a class="nav-link" href="/FrontEnd/admin/admin.html">
-              <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
-            </a>
-          </li>
-
-          <!-- Länk till användarprofil -->
-          <li class="nav-item">
-            <a class="nav-link" href="/FrontEnd/User/user.html">
-              <img id="userlogo" src="../Images/user.png" alt="User" />
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- ====== SLUT NAVBAR ====== -->
-
-  <!-- ====== LÄGG TILL PRODUKT ====== -->
-  <!-- Backend: POST-ar produktdata till API:et för att lägga till en ny produkt -->
-  <section id="add-product-section" class="container mt-5">
-    <h3 class="mb-4">Lägg till ny produkt</h3>
-
-    <form id="add-product-form" class="row g-3 align-items-end">
-
-      <!-- Produktnamn -->
-      <div class="col-md-3">
-        <label for="add-product-name" class="form-label">Produktnamn</label>
-        <input
-          type="text"
-          class="form-control"
-          id="add-product-name"
-          name="productName"
-          placeholder="T.ex. Banan"
-          required
-        />
-      </div>
-
-      <!-- Ursprung -->
-      <div class="col-md-3">
-        <label for="add-product-origin" class="form-label">Ursprung (Origin)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="add-product-origin"
-          name="productOrigin"
-          placeholder="T.ex. Ecuador"
-          required
-        />
-      </div>
-
-      <!-- Pris -->
-      <div class="col-md-3">
-        <label for="add-product-price" class="form-label">Pris</label>
-        <input
-          type="number"
-          class="form-control"
-          id="add-product-price"
-          name="productPrice"
-          placeholder="T.ex. 25"
-          required
-        />
-      </div>
-
-      <!-- Spara-knapp -->
-      <div class="col-md-3">
-        <button type="submit" class="btn btn-primary w-100">
-          Spara produkt
+        <!-- Hamburgarmeny för mobil -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Länk till kundvagn -->
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
+
+            <!-- Länk till admin-inventory (föregående admin-sida) -->
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/admin/admin.html">
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
+            </li>
+
+            <!-- Länk till användarprofil -->
+            <li class="nav-item">
+              <a class="nav-link" href="/FrontEnd/User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <!-- ====== SLUT NAVBAR ====== -->
 
-    </form>
-  </section>
-  <!-- ====== SLUT LÄGG TILL PRODUKT ====== -->
+    <!-- ====== LÄGG TILL PRODUKT ====== -->
+    <!-- Backend: POST-ar produktdata till API:et för att lägga till en ny produkt -->
+    <section id="add-product-section" class="container mt-5">
+      <h3 class="mb-4">Lägg till ny produkt</h3>
 
-  <!-- ====== TA BORT PRODUKT ====== -->
-  <!-- Backend: DELETE-request skickas med produktnamn/ursprung för att ta bort -->
-  <section id="remove-product-section" class="container mt-5">
-    <h3 class="mb-4">Ta bort en produkt</h3>
+      <form id="add-product-form" class="row g-3 align-items-end">
+        <!-- Produktnamn -->
+        <div class="col-md-3">
+          <label for="add-product-name" class="form-label">Produktnamn</label>
+          <input
+            type="text"
+            class="form-control"
+            id="add-product-name"
+            name="productName"
+            placeholder="T.ex. Banan"
+            required
+          />
+        </div>
 
-    <form id="remove-product-form" class="row g-3 align-items-end">
+        <!-- Ursprung -->
+        <div class="col-md-3">
+          <label for="add-product-origin" class="form-label"
+            >Ursprung (Origin)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="add-product-origin"
+            name="productOrigin"
+            placeholder="T.ex. Ecuador"
+            required
+          />
+        </div>
 
-      <!-- Produktnamn -->
-      <div class="col-md-3">
-        <label for="remove-product-name" class="form-label">Produktnamn</label>
-        <input
-          type="text"
-          class="form-control"
-          id="remove-product-name"
-          name="productName"
-          placeholder="T.ex. Banan"
-          required
-        />
-      </div>
+        <!-- Kött Typ -->
+        <div class="col-md-3">
+          <label for="add-product-origin" class="form-label">Kött Typ</label>
 
-      <!-- Ursprung -->
-      <div class="col-md-3">
-        <label for="remove-product-origin" class="form-label">Ursprung (Origin)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="remove-product-origin"
-          name="productOrigin"
-          placeholder="T.ex. Ecuador"
-          required
-        />
-      </div>
+          <select
+            class="form-select col-md-3"
+            aria-label="Default select example"
+            id="add-product-meatType"
+            name="productMeat"
+            required
+          >
+            <option value="" disabled selected>
+              Open this to select Meat type
+            </option>
+            <option value="beef">Nötkött</option>
+            <option value="chicken">Kyckling</option>
+            <option value="fish">Fisk</option>
+            <option value="vegetarian">Vegetariskt</option>
+          </select>
+        </div>
 
-      <!-- Ta bort-knapp -->
-      <div class="col-md-3">
-        <button type="submit" class="btn btn-danger w-100">
-          Ta bort produkt
-        </button>
-      </div>
+        <!-- Pris -->
+        <div class="col-md-3">
+          <label for="add-product-price" class="form-label">Pris</label>
+          <input
+            type="number"
+            class="form-control"
+            id="add-product-price"
+            name="productPrice"
+            placeholder="T.ex. 25"
+            required
+          />
+        </div>
 
-    </form>
-  </section>
-  <!-- ====== SLUT TA BORT PRODUKT ====== -->
+        <!-- Spara-knapp -->
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">
+            Spara produkt
+          </button>
+        </div>
+      </form>
+    </section>
+    <!-- ====== SLUT LÄGG TILL PRODUKT ====== -->
 
-  <!-- Bootstrap JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"
-  ></script>
-</body>
+    <!-- ====== TA BORT PRODUKT ====== -->
+    <!-- Backend: DELETE-request skickas med produktnamn/ursprung för att ta bort -->
+    <section id="remove-product-section" class="container mt-5">
+      <h3 class="mb-4">Ta bort en produkt</h3>
+
+      <form id="remove-product-form" class="row g-3 align-items-end">
+        <!-- Produktnamn -->
+        <div class="col-md-3">
+          <label for="remove-product-name" class="form-label"
+            >Produktnamn</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="remove-product-name"
+            name="productName"
+            placeholder="T.ex. Banan"
+            required
+          />
+        </div>
+
+        <!-- Ursprung -->
+        <div class="col-md-3">
+          <label for="remove-product-origin" class="form-label"
+            >Ursprung (Origin)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="remove-product-origin"
+            name="productOrigin"
+            placeholder="T.ex. Ecuador"
+            required
+          />
+        </div>
+
+        <!-- Ta bort-knapp -->
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-danger w-100">
+            Ta bort produkt
+          </button>
+        </div>
+      </form>
+    </section>
+    <!-- ====== SLUT TA BORT PRODUKT ====== -->
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
