@@ -84,6 +84,121 @@ nav.navbar {
   z-index: 998;
 }
 
+/* ---- Logo-matching playful palette (adjustable) ---- */
+:root {
+  --logo-pink: #ff6b8a;
+  --logo-coral: #ff9a56;
+  --logo-yellow: #ffd66b;
+  --logo-teal: #6be5c7;
+  --logo-blue: #6fb7ff;
+  --panel-accent: rgba(255,255,255,0.85);
+}
+
+.filters-box {
+  background: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
+  border-right: 6px solid var(--panel-accent);
+  backdrop-filter: blur(4px);
+}
+
+#filter-panel h3 {
+  font-weight: 900;
+  font-size: 1.18rem;
+  margin-bottom: 8px;
+  background-image: linear-gradient(90deg, var(--logo-pink), var(--logo-coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logoColorCycle 1.4s linear infinite;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+#filter-panel label {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.98rem;
+  margin: 6px 0;
+  background-image: linear-gradient(90deg, var(--logo-yellow), var(--logo-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logoColorCycle 1.4s linear infinite, gentleBounce 1.8s ease-in-out infinite;
+}
+
+/* alternate timing so headings and labels feel playful */
+#filter-panel label:nth-of-type(odd) { animation-delay: 0.08s; }
+#filter-panel label:nth-of-type(even) { animation-delay: 0.28s; }
+
+.filters-box input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.06);
+  background: linear-gradient(180deg,#ffffff 0%, #fff7f9 100%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease;
+  display: inline-block;
+}
+
+.filters-box input[type="checkbox"]:checked {
+  /* Use CSS variables so JS can set a random or rainbow gradient per checkbox */
+  border-color: rgba(0,0,0,0.04);
+  box-shadow: 0 8px 18px rgba(107,183,255,0.12);
+  transform: scale(1.04);
+  background-image: var(--csvg, none), var(--cbg, linear-gradient(180deg,var(--logo-pink),var(--logo-coral)));
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, 50% 50%;
+  background-size: 60% 60%, 200% 200%;
+}
+
+/* animated background shift for rainbow effect */
+.filters-box input[type="checkbox"].rainbow {
+  animation: bgShift 1.2s linear infinite;
+  background-size: 60% 60%, 300% 300%;
+}
+
+@keyframes bgShift {
+  0% { background-position: center, 0% 50%; }
+  50% { background-position: center, 100% 50%; }
+  100% { background-position: center, 0% 50%; }
+}
+
+.filters-box input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(255,107,138,0.14);
+}
+
+/* small-screen adjustment */
+@media (max-width: 600px) {
+  .filters-box input[type="checkbox"] { width: 18px; height: 18px; margin-right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filters-box input[type="checkbox"] { transition: none; transform: none; }
+  .filters-box input[type="checkbox"]:checked { transform: none; }
+}
+
+@keyframes logoColorCycle {
+  0% { background-image: linear-gradient(90deg, var(--logo-pink), var(--logo-coral)); }
+  25% { background-image: linear-gradient(90deg, var(--logo-coral), var(--logo-yellow)); }
+  50% { background-image: linear-gradient(90deg, var(--logo-yellow), var(--logo-teal)); }
+  75% { background-image: linear-gradient(90deg, var(--logo-teal), var(--logo-blue)); }
+  100% { background-image: linear-gradient(90deg, var(--logo-blue), var(--logo-pink)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #filter-panel h3,
+  #filter-panel label {
+    animation: none;
+  }
+}
+
 
 /* ---- Matgalleri ---- */
 .gallery {
