@@ -43,8 +43,12 @@
             <li class="nav-item"></li>
           </ul>
           <!-- Inloggningsknapp — synlig för icke-inloggade användare -->
-          <a class="navbar-brand" href="../logout-login/login.html"><h3 class="LogSign login ">Login</h3></a>
-          <a class="navbar-brand" href="../logout-login/sign.html"><h3 class="LogSign signup ">Sign in</h3></a>
+          <a class="navbar-brand" href="../logout-login/login.html"
+            ><h3 class="LogSign login">Login</h3></a
+          >
+          <a class="navbar-brand" href="../logout-login/sign.html"
+            ><h3 class="LogSign signup">Sign in</h3></a
+          >
         </div>
       </div>
     </nav>
@@ -54,79 +58,189 @@
     <div class="content-row">
       <!-- Filterpanel (fast vänsterspalt) -->
       <!-- Backend: checkboxarna kopplas till filterlogik via JS -->
-    <aside id="filter-panel" class="filters-box">
-      <h3>Filter</h3>
+      <aside id="filter-panel" class="filters-box">
+        <h3>Filter</h3>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="platser" />
-        Platser
-      </label>
+        <label>
+          <input
+            type="checkbox"
+            class="filter-checkbox"
+            data-filter="platser"
+          />
+          Platser
+        </label>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="kott" />
-        Kött val
-      </label>
+        <label>
+          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          Kött val
+        </label>
 
-      <h3>Platser</h3>
-           <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="platser" />
-        Amos Kebab
-      </label>
+        <h3>Platser</h3>
+        <label>
+          <input
+            type="checkbox"
+            class="filter-checkbox"
+            data-filter="platser"
+          />
+          Amos Kebab
+        </label>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="kott" />
-        Bogdans Pizzeria
-      </label>
-           <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="platser" />
-        KFC
-      </label>
+        <label>
+          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          Bogdans Pizzeria
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="filter-checkbox"
+            data-filter="platser"
+          />
+          KFC
+        </label>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="kott" />
-        Wing Wongs Ricefarm
-      </label>
+        <label>
+          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          Wing Wongs Ricefarm
+        </label>
 
-      <h3>Kött val</h3>
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="platser" />
-        Nötkött
-      </label>
+        <h3>Kött val</h3>
+        <label>
+          <input
+            type="checkbox"
+            class="filter-checkbox"
+            data-filter="platser"
+          />
+          Nötkött
+        </label>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="kott" />
-        Kyckling
-      </label>
-           <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="platser" />
-        Fisk
-      </label>
+        <label>
+          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          Kyckling
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="filter-checkbox"
+            data-filter="platser"
+          />
+          Fisk
+        </label>
 
-      <label>
-        <input type="checkbox" class="filter-checkbox" data-filter="kott" />
-        Vegetariskt
-      </label>
-    </aside>
+        <label>
+          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          Vegetariskt
+        </label>
+      </aside>
 
-    <!-- Matgalleri — bilder laddas dynamiskt från backend -->
-    <section id="food-gallery" class="gallery">
-      <!-- Backend ersätter dessa placeholder-bilder med riktiga maträtter -->
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      <img class="gallery-image" src="../Images/lickitung.jpg" alt="food" />
-      
-    </section>
+      <!-- Matgalleri — bilder laddas dynamiskt från backend -->
+      <section id="food-gallery" class="gallery">
+        <!-- Backend ersätter dessa placeholder-bilder med riktiga maträtter -->
 
-  </div>
-  <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
+        <a href="/FrontEnd/logout-login/login.html">
+          <button style="all: unset">
+            <div class="gallery-item">
+              <img
+                class="gallery-image"
+                src="/FrontEnd/Images/lickitung.jpg"
+                alt="food"
+              />
+              <div class="gallery-overlay">
+                <h4>Grillad lax med örter</h4>
+                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
+                <p>Plats: Malmö</p>
+                <p>Köttalternativ: Tofu</p>
+              </div>
+            </div>
+          </button>
+        </a>
 
-</body>
+      </section>
+    </div>
+    <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
+  </body>
 </html>
