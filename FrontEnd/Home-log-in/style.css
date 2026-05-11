@@ -30,6 +30,9 @@ nav.navbar {
   left: 0;
   width: 100%;
   z-index: 999;
+  background: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
+  border-right: 6px solid var(--panel-accent);
+  backdrop-filter: blur(4px);
 }
 
 
@@ -86,10 +89,10 @@ nav.navbar {
 
 /* ---- Logo-matching playful palette (adjustable) ---- */
 :root {
-  --logo-pink: #ff6b8a;
+  --logo-pink: #ff6889;
   --logo-coral: #ff9a56;
-  --logo-yellow: #ffd66b;
-  --logo-teal: #6be5c7;
+  --logo-yellow: #bb880a;
+  --logo-teal: #00b52d;
   --logo-blue: #6fb7ff;
   --panel-accent: rgba(255,255,255,0.85);
 }
