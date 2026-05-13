@@ -65,8 +65,7 @@ CREATE TABLE public.products (
     product_price numeric(10,2) NOT NULL,
     category character varying(100),
     image text,
-    description text,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+    created_at text
 );
 
 
