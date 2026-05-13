@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict PGmGHapYywsTJZ45ckJoJ1IHkvY7Zy2V9hEa9ky2NJgcRese7aUGdIAY8SCnz3Q
+\restrict hKaJt13jidPaXef9lLzuMKRCrZyrKxoxnLudNCWk6KzZFxg7ll4fvI87Ly2mwPs
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
 
--- Started on 2026-05-07 08:41:43
+-- Started on 2026-05-13 15:51:22
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -61,7 +61,12 @@ ALTER TABLE public.orders OWNER TO postgres;
 
 CREATE TABLE public.products (
     product_id integer NOT NULL,
-    product_name character varying(20)
+    product_name character varying(20),
+    product_price numeric(10,2) NOT NULL,
+    category character varying(100),
+    image text,
+    description text,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -100,7 +105,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 5035 (class 0 OID 0)
+-- TOC entry 5036 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -109,7 +114,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4868 (class 2604 OID 24818)
+-- TOC entry 4869 (class 2604 OID 24818)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -117,7 +122,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 5026 (class 0 OID 24784)
+-- TOC entry 5027 (class 0 OID 24784)
 -- Dependencies: 220
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -125,7 +130,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 5027 (class 0 OID 24802)
+-- TOC entry 5028 (class 0 OID 24802)
 -- Dependencies: 221
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -133,7 +138,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 5025 (class 0 OID 24778)
+-- TOC entry 5026 (class 0 OID 24778)
 -- Dependencies: 219
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -141,24 +146,27 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 5029 (class 0 OID 24815)
+-- TOC entry 5030 (class 0 OID 24815)
 -- Dependencies: 223
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.users (id, username, email, password, phone) VALUES (1, 'samira', 'duck24@gmail.com', '$2b$10$k8hXwngEt.UTldqe3RtA0uCtJNlueCwPuMaDdSE3mop4EHND7hxYS', '0701010');
+INSERT INTO public.users (id, username, email, password, phone) VALUES (2, 'anders', 'anders.andersson@gmail.com', '$2b$10$AZP5Jv/yYuNsI2ERkcQOneHTZyTSJ3tv/0/7sN4qZOGHjaDQyfUYu', '0734914033');
+INSERT INTO public.users (id, username, email, password, phone) VALUES (3, 'diogo', 'diomango12@gmail.com', '$2b$10$XfWG.pD.bgcJxHdmSJ8KY.UBALN/E7iLjTFyyrN4Ck2GxX7Zt8rUO', '0718921839');
 
 
 --
--- TOC entry 5036 (class 0 OID 0)
+-- TOC entry 5037 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 3, true);
 
 
 --
--- TOC entry 4872 (class 2606 OID 24789)
+-- TOC entry 4873 (class 2606 OID 24789)
 -- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -167,7 +175,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- TOC entry 4874 (class 2606 OID 24807)
+-- TOC entry 4875 (class 2606 OID 24807)
 -- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -176,7 +184,7 @@ ALTER TABLE ONLY public.orders
 
 
 --
--- TOC entry 4870 (class 2606 OID 24783)
+-- TOC entry 4871 (class 2606 OID 24783)
 -- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -185,7 +193,7 @@ ALTER TABLE ONLY public.products
 
 
 --
--- TOC entry 4876 (class 2606 OID 24822)
+-- TOC entry 4877 (class 2606 OID 24822)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -194,7 +202,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4877 (class 2606 OID 24808)
+-- TOC entry 4878 (class 2606 OID 24808)
 -- Name: orders orders_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -202,11 +210,11 @@ ALTER TABLE ONLY public.orders
     ADD CONSTRAINT orders_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.products(product_id);
 
 
--- Completed on 2026-05-07 08:41:43
+-- Completed on 2026-05-13 15:51:23
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict PGmGHapYywsTJZ45ckJoJ1IHkvY7Zy2V9hEa9ky2NJgcRese7aUGdIAY8SCnz3Q
+\unrestrict hKaJt13jidPaXef9lLzuMKRCrZyrKxoxnLudNCWk6KzZFxg7ll4fvI87Ly2mwPs
 
