@@ -106,52 +106,63 @@
 
      <!--samma sak gäller, ta inte bort denna script, den tillhör för log in-->
 
-  <script>
-    const loginForm =
-      document.getElementById("login-form");
-    
-    
-    loginForm.addEventListener(
-      "submit",
-      async (e) => {
-    
-        e.preventDefault();
-    
-        const email =
-          document.getElementById(
-            "login-email"
-          ).value;
-    
-        const password =
-          document.getElementById(
-            "login-password"
-          ).value;
-    
-    
-        const response = await fetch(
-          "/api/users/login",
-          {
-            method: "POST",
-    
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-    
-            body: JSON.stringify({
-              email,
-              password
-            })
+     <script>
+
+      const loginForm =
+        document.getElementById("login-form");
+      
+      loginForm.addEventListener(
+        "submit",
+        async (e) => {
+      
+          e.preventDefault();
+      
+          const email =
+            document.getElementById(
+              "login-email"
+            ).value;
+      
+          const password =
+            document.getElementById(
+              "login-password"
+            ).value;
+      
+          const response = await fetch(
+            "/api/users/login",
+            {
+              method: "POST",
+      
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+      
+              body: JSON.stringify({
+                email,
+                password
+              })
+            }
+          );
+      
+          const data =
+            await response.json();
+      
+          if (response.ok) {
+
+            localStorage.setItem("user", JSON.stringify(data.user));
+            
+            window.location.href =
+              "/User/user.html";
+      
+          } else {
+      
+            alert(data.message);
+      
           }
-        );
-    
-        const data = await response.json();
-    
-        alert(data.message);
-    
-      }
-    );
-    
-    </script>
+      
+        }
+      );
+      
+      </script>
 </body>
 </html>

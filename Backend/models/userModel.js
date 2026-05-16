@@ -1,4 +1,15 @@
-import db from "../config/db.js";
+//Här pratar du med PostgreSQL.
+
+// SQL queries för users
+// findUserByEmail
+// createUser
+// getUserById
+// updateUser
+// deleteUser
+
+// iNGA ÄNDRING KRÄVS
+
+import db from "../db.js";
 
 // Skapa ny user
 export const createUser = async (

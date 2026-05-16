@@ -1,3 +1,12 @@
+//Här ligger logiken.
+
+// Hanterar users
+// Register user
+// Login user
+// Update user profile
+// Delete user
+// Hämta user information
+
 import bcrypt from "bcrypt";
 
 import {
@@ -42,8 +51,14 @@ export const registerUser = async (req, res) => {
       hashedPassword
     );
 
+
     res.status(201).json({
-      message: "User created successfully"  //här ska vi tilläga så att det går visa user.html
+      message: "User created successfully",
+      user: {
+        username,
+        email,
+        phone
+      }
     });
 
   } catch (error) {
@@ -92,8 +107,14 @@ export const loginUser = async (req, res) => {
     }
 
     res.status(200).json({
-      message: "Login successful" // samma sak gäller här, det renderas till user.html
+      message: "Login successful",
+      user: {
+        username: user.rows[0].username,
+        email: user.rows[0].email,
+        phone: user.rows[0].phone
+      }
     });
+
 
   } catch (error) {
 

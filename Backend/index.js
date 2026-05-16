@@ -1,7 +1,20 @@
+// Main server file
+
+// Import express
+// Import routes
+// Import middleware
+// Connect database
+// Static frontend
+// API routes
+// Start server
+// Använda routes 
+// Middleware
+
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import userRoutes from "./routes/userRoute.js";
+import productRoutes from "./routes/productRoute.js";
 
 const server = express();
 const port = 3000;
@@ -14,9 +27,10 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 server.use(express.json());
-// router in work
-server.use("/api/users", userRoutes);
 
+// router in work
+server.use("/api/users", userRoutes); // DET FÖR USER, INGA ÄNDIRNG KRÄVS 
+server.use("/api/products", productRoutes); // DET ÄR FÖR PRODUCTER, använd den senare för att koppla frontend och backend
 
 // Gör FrontEnd-mappen offentlig
 server.use(express.static(path.join(__dirname, "../FrontEnd")));

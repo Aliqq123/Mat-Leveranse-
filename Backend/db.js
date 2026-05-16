@@ -1,3 +1,11 @@
+// Här kopplar du PostgreSQL databasen
+// Import pg package
+// Läs .env variabler
+// Skapa database connection
+// Exportera db så hela backend kan använda databasen
+
+// DATBASEN ÄR KOPPLAD INGA ÄNDRING KRÄVS
+
 import pg from "pg";
 import dotenv from "dotenv";
 

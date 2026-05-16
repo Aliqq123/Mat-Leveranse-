@@ -1,3 +1,13 @@
+//Här ligger logiken.
+
+// Kontrollera JWT token
+// Kontrollera om användaren är inloggad
+// Skydda privata routes
+// Kontrollera om user är admin
+// Skydda admin routes
+
+// INGA ÄNRING KRÄVS
+
 server.post("/register", async (req, res) => {
   const username = req.body.username;
   const email = req.body.email;

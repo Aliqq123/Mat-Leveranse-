@@ -1,3 +1,14 @@
+//Här definieras URL:er.
+
+// User endpoints
+// POST /signup
+// POST /login
+// GET /profile
+// PUT /update
+// DELETE /delete
+
+//INGA ÄNDRING KRÄVS
+
 import express from "express";
 
 

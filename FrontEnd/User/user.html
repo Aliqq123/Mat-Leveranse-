@@ -106,5 +106,31 @@
 
   <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
 
+
+  <script>
+
+    const user =
+      JSON.parse(
+        localStorage.getItem("user")
+      );
+    
+    if (user) {
+    
+      document.getElementById(
+        "user-name-input"
+      ).value = user.username;
+    
+      document.getElementById(
+        "user-email-input"
+      ).value = user.email;
+    
+      document.getElementById(
+        "user-phone-input"
+      ).value = user.phone;
+    
+    }
+    
+    </script>
+
 </body>
 </html>

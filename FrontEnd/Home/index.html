@@ -134,113 +134,38 @@
 
       <!-- Matgalleri — bilder laddas dynamiskt från backend -->
       <section id="food-gallery" class="gallery">
-        <!-- Backend ersätter dessa placeholder-bilder med riktiga maträtter -->
-
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-        <a href="../logout-login/login.html">
-          <button style="all: unset">
-            <div class="gallery-item">
-              <img
-                class="gallery-image"
-                src="../Images/lickitung.jpg"
-                alt="food"
-              />
-              <div class="gallery-overlay">
-                <h4>Grillad lax med örter</h4>
-                <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-                <p>Plats: Malmö</p>
-                <p>Köttalternativ: Tofu</p>
-              </div>
-            </div>
-          </button>
-        </a>
-
+        <!-- JS fyller detta -->
       </section>
     </div>
     <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
+
+
+    <!-- Koden som fanns i section är nu om skriven till js, så att vi kan bearbeta dig med loopar såsom (whileloop)-->
+    <script>
+      // Här är koden för att visa producten på hemsidan (obs du behöver ladd ner images själv)
+      async function loadProducts() {
+        const res = await fetch("/api/products");
+        const products = await res.json();
+      
+        const container = document.getElementById("food-gallery");
+      
+        container.innerHTML = products.map(p => `
+          <a href="../logout-login/login.html">
+            <button style="all: unset">
+              <div class="gallery-item">
+                <img class="gallery-image" src="${p.product_image}" alt="food" />
+                <div class="gallery-overlay">
+                  <h4>${p.product_name}</h4>
+                  <p>${p.product_description}</p>
+                  <p>Pris: ${p.product_price} kr</p>
+                </div>
+              </div>
+            </button>
+          </a>
+        `).join("");
+      }
+      
+      loadProducts();
+      </script>
   </body>
 </html>
