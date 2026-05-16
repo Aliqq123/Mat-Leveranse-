@@ -80,7 +80,11 @@ ALTER TABLE ONLY public.products ALTER COLUMN product_id SET DEFAULT nextval('pu
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (1, 'Kebab Rulle', 'En klassisk svensk kebabrulle med tunnbröd, kebabkött, färska grönsaker och kebabsås.', '/Images/kebabrulle.jpg', 99.50);
+INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (1, 'Kebabrulle', 'En klassisk svensk kebabrulle med tunnbröd, kebabkött, färska grönsaker och kebabsås.', '/Images/kebabrulle.jpg', 99.50);
+INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (2, 'Pepperonipizza', 'En populär pepperonipizza med pepperonis, champinjoner, oliver och jalapeños.', '/Images/pizza.jpg', 100.50);
+INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (3, 'Cheeseburgare', 'En vanlig cheeseburgare med hamburgerbröd, köttbiff och ost.', '/Images/burger.jpg', 99.50);
+INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (4, 'Shrimp alfredo pasta', 'En känd pasta alfredo med pasta, räkor och alfredosås.', '/Images/shrimp.jpg', 195.50);
+INSERT INTO public.products (product_id, product_name, product_description, product_image, product_price) VALUES (5, 'Fish and chips', 'En klassisk fish and chips med friterad fiskfilé, pommes frites och tartarsås.', '/Images/fish.jpg', 100.50);
 
 
 --
