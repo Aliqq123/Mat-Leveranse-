@@ -139,17 +139,18 @@
     </div>
     <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
 
-
     <!-- Koden som fanns i section är nu om skriven till js, så att vi kan bearbeta dig med loopar såsom (whileloop)-->
     <script>
       // Här är koden för att visa producten på hemsidan (obs du behöver ladd ner images själv)
       async function loadProducts() {
         const res = await fetch("/api/products");
         const products = await res.json();
-      
+
         const container = document.getElementById("food-gallery");
-      
-        container.innerHTML = products.map(p => `
+
+        container.innerHTML = products
+          .map(
+            (p) => `
           <a href="../logout-login/login.html">
             <button style="all: unset">
               <div class="gallery-item">
@@ -162,10 +163,17 @@
               </div>
             </button>
           </a>
-        `).join("");
+        `,
+          )
+          .join("");
       }
-      
+
       loadProducts();
-      </script>
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

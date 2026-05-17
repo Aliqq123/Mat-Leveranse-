@@ -1,187 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kundvagn</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kundvagn</title>
 
-  <!-- Kundvagnsstyling -->
-  <link rel="stylesheet" href="/FrontEnd/Cart/cart.css" />
+    <!-- Kundvagnsstyling -->
+    <link rel="stylesheet" href="/FrontEnd/Cart/cart.css" />
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-</head>
-<body>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- Logotyp -->
+        <a class="navbar-brand" href="../Home-log-in/home.html">
+          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+        </a>
 
-  <!-- ====== NAVBAR ====== -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+        <!-- Hamburgarmeny för mobil -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- Logotyp -->
-      <a class="navbar-brand" href="../Home-log-in/home.html">
-        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
-      </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Länk till kundvagn (aktuell sida) -->
+            <li class="nav-item">
+              <a class="nav-link" href="../Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
 
-      <!-- Hamburgarmeny för mobil -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <!-- Länk till adminpanel -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="nav-admin-link"
+                href="../admin/admin.html"
+              >
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
+            </li>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <!-- Länk till kundvagn (aktuell sida) -->
-          <li class="nav-item">
-            <a class="nav-link" href="../Cart/cart.html">
-              <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
-            </a>
-          </li>
-
-          <!-- Länk till adminpanel -->
-          <li class="nav-item">
-            <a class="nav-link" id="nav-admin-link" href="../admin/admin.html">
-              <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
-            </a>
-          </li>
-
-          <!-- Länk till användarprofil -->
-          <li class="nav-item">
-            <a class="nav-link" href="../User/user.html">
-              <img id="userlogo" src="../Images/user.png" alt="User" />
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- ====== SLUT NAVBAR ====== -->
-
-  <!-- ====== KUNDVAGN ====== -->
-  <!-- Backend: cart-container fylls med ordrar kopplade till inloggad användare -->
-  <div id="cart-container" class="cart-container">
-
-    <!-- Lista med varukorgsartiklar -->
-    <!-- Backend: varje cart-item renderas dynamiskt med produkt-id som data-attribut -->
-    <div id="cart-items-wrapper" class="cart-wrapper">
-
-      <!-- Artikel 1 -->
-      <div class="cart-item" data-product-id="1">
-        <div class="item-main">
-          <img
-            src="../Images/fatas.jpg"
-            alt="food"
-            class="item-image"
-          />
-          <div class="item-info">
-            <h3 class="item-name">Burger</h3>
-            <p class="item-description">
-              En saftig burgare med färska råvaror och vår speciella dressing.
-              Perfekt för lunch eller middag.
-            </p>
-          </div>
+            <!-- Länk till användarprofil -->
+            <li class="nav-item">
+              <a class="nav-link" href="../User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+    <!-- ====== SLUT NAVBAR ====== -->
 
-        <!-- Kontroller: ta bort och ändra antal -->
-        <div class="item-controls">
-          <!-- Backend: trash-btn skickar DELETE-request med produkt-id -->
-          <img
-            src="../Images/trash.png"
-            alt="trash"
-            class="trash-btn"
-            data-product-id="1"
-          />
+    <!-- ====== KUNDVAGN ====== -->
+    <!-- Backend: cart-container fylls med ordrar kopplade till inloggad användare -->
+    <div id="cart-container" class="cart-container">
+      <!-- Lista med varukorgsartiklar -->
+      <!-- Backend: varje cart-item renderas dynamiskt med produkt-id som data-attribut -->
+      <div id="cart-items-wrapper" class="cart-wrapper">
+        <!-- Artikel 1 -->
+        <div class="cart-item" data-product-id="1">
+          <div class="item-main">
+            <img src="../Images/fatas.jpg" alt="food" class="item-image" />
+            <div class="item-info">
+              <h3 class="item-name">Burger</h3>
+              <p class="item-description">
+                En saftig burgare med färska råvaror och vår speciella dressing.
+                Perfekt för lunch eller middag.
+              </p>
+            </div>
+          </div>
 
-          <!-- Antalskontroll — backend uppdaterar ordern vid ändring -->
-          <div class="quantity-control">
-            <button class="quantity-btn quantity-decrease" data-product-id="1">-</button>
-            <input
-              type="number"
-              value="1"
-              min="1"
-              class="quantity-input"
-              id="quantity-1"
+          <!-- Kontroller: ta bort och ändra antal -->
+          <div class="item-controls">
+            <!-- Backend: trash-btn skickar DELETE-request med produkt-id -->
+            <img
+              src="../Images/trash.png"
+              alt="trash"
+              class="trash-btn"
               data-product-id="1"
             />
-            <button class="quantity-btn quantity-increase" data-product-id="1">+</button>
+
+            <!-- Antalskontroll — backend uppdaterar ordern vid ändring -->
+            <div class="quantity-control">
+              <button
+                class="quantity-btn quantity-decrease"
+                data-product-id="1"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                value="1"
+                min="1"
+                class="quantity-input"
+                id="quantity-1"
+                data-product-id="1"
+              />
+              <button
+                class="quantity-btn quantity-increase"
+                data-product-id="1"
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Slut Artikel 1 -->
+        <!-- Slut Artikel 1 -->
 
-      <!-- Artikel 2 -->
-      <div class="cart-item" data-product-id="2">
-        <div class="item-main">
-          <img
-            src="../Images/fatas.jpg"
-            alt="food"
-            class="item-image"
-          />
-          <div class="item-info">
-            <h3 class="item-name">Burger Special</h3>
-            <p class="item-description">
-              Vår lyxigaste variant med extra allt. Levereras med krispiga
-              tillbehör.
-            </p>
+        <!-- Artikel 2 -->
+        <div class="cart-item" data-product-id="2">
+          <div class="item-main">
+            <img src="../Images/fatas.jpg" alt="food" class="item-image" />
+            <div class="item-info">
+              <h3 class="item-name">Burger Special</h3>
+              <p class="item-description">
+                Vår lyxigaste variant med extra allt. Levereras med krispiga
+                tillbehör.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="item-controls">
-          <img
-            src="../Images/trash.png"
-            alt="trash"
-            class="trash-btn"
-            data-product-id="2"
-          />
-
-          <div class="quantity-control">
-            <button class="quantity-btn quantity-decrease button-controll" data-product-id="2">-</button>
-            <input
-              type="number"
-              value="1"
-              min="1"
-              class="quantity-input"
-              id="quantity-2"
+          <div class="item-controls">
+            <img
+              src="../Images/trash.png"
+              alt="trash"
+              class="trash-btn"
               data-product-id="2"
             />
-            <button class="quantity-btn quantity-increase button-controll" data-product-id="2">+</button>
+
+            <div class="quantity-control">
+              <button
+                class="quantity-btn quantity-decrease button-controll"
+                data-product-id="2"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                value="1"
+                min="1"
+                class="quantity-input"
+                id="quantity-2"
+                data-product-id="2"
+              />
+              <button
+                class="quantity-btn quantity-increase button-controll"
+                data-product-id="2"
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
+        <!-- Slut Artikel 2 -->
       </div>
-      <!-- Slut Artikel 2 -->
+      <!-- Slut cart-items-wrapper -->
 
-    </div>
-    <!-- Slut cart-items-wrapper -->
+      <!-- Summering och kassa -->
+      <div id="cart-summary" class="summary-section">
+        <!-- Backend: totalpriset beräknas och injiceras här -->
+        <h1 id="cart-total">Total: 67$</h1>
 
-    <!-- Summering och kassa -->
-    <div id="cart-summary" class="summary-section">
-      <!-- Backend: totalpriset beräknas och injiceras här -->
-      <h1 id="cart-total">Total: 67$</h1>
+        <div class="checkout-actions">
+          <!-- Avbryt-knapp — navigerar tillbaka till matgalleriet -->
+          <button id="btn-cancel" class="btn btn-cancel">Avbryt</button>
 
-      <div class="checkout-actions">
-        <!-- Avbryt-knapp — navigerar tillbaka till matgalleriet -->
-        <button id="btn-cancel" class="btn btn-cancel">Avbryt</button>
-
-        <!-- Kassaknapp — skickar order till backend -->
-        <button id="btn-checkout" class="btn btn-purchase">Gå till kassan</button>
+          <!-- Kassaknapp — skickar order till backend -->
+          <button id="btn-checkout" class="btn btn-purchase">
+            Gå till kassan
+          </button>
+        </div>
       </div>
     </div>
+    <!-- ====== SLUT KUNDVAGN ====== -->
 
-  </div>
-  <!-- ====== SLUT KUNDVAGN ====== -->
-
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

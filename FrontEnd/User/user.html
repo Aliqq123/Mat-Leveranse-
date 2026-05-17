@@ -1,136 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
 
-  <!-- Användarprofil-styling -->
-  <link rel="stylesheet" href="../User/user.css" />
+    <!-- Användarprofil-styling -->
+    <link rel="stylesheet" href="../User/user.css" />
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-</head>
-<body>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- Logotyp länkad till inloggad startsida -->
+        <a class="navbar-brand" href="../Home-log-in/home.html">
+          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+        </a>
 
-  <!-- ====== NAVBAR ====== -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+        <!-- Hamburgarmeny för mobil -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- Logotyp länkad till inloggad startsida -->
-      <a class="navbar-brand" href="../Home-log-in/home.html">
-        <img id="logo" src="../Images/foodie.png" alt="Foodie" />
-      </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Länk till kundvagn -->
+            <li class="nav-item">
+              <a class="nav-link" href="../Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
 
-      <!-- Hamburgarmeny för mobil -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <!-- Länk till adminpanel -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="nav-admin-link"
+                href="../admin/admin.html"
+              >
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
+            </li>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <!-- Länk till kundvagn -->
-          <li class="nav-item">
-            <a class="nav-link" href="../Cart/cart.html">
-              <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
-            </a>
-          </li>
-
-          <!-- Länk till adminpanel -->
-          <li class="nav-item">
-            <a class="nav-link" id="nav-admin-link" href="../admin/admin.html">
-              <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
-            </a>
-          </li>
-
-          <!-- Länk till användarprofil (aktuell sida) -->
-          <li class="nav-item">
-            <a class="nav-link" href="../User/user.html">
-              <img id="userlogo" src="../Images/user.png" alt="User" />
-            </a>
-          </li>
-
-        </ul>
+            <!-- Länk till användarprofil (aktuell sida) -->
+            <li class="nav-item">
+              <a class="nav-link" href="../User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- ====== SLUT NAVBAR ====== -->
+    </nav>
+    <!-- ====== SLUT NAVBAR ====== -->
 
-  <!-- ====== ANVÄNDARPROFIL ====== -->
-  <!-- Backend: profildata hämtas via session och injiceras i elementen nedan -->
-  <section id="user-profile-section">
+    <!-- ====== ANVÄNDARPROFIL ====== -->
+    <!-- Backend: profildata hämtas via session och injiceras i elementen nedan -->
+    <section id="user-profile-section">
+      <!-- Profilbild med ändra-knapp -->
+      <div class="profile-picture-container">
+        <img id="profile-picture" src="../Images/user2.png" alt="Profile" />
+        <button class="btn btn-outline-light btn-sm change-btn">Ändra</button>
+      </div>
 
-    <!-- Profilbild med ändra-knapp -->
-    <div class="profile-picture-container">
-      <img
-        id="profile-picture"
-        src="../Images/user2.png"
-        alt="Profile"
-      />
-      <button class="btn btn-outline-light btn-sm change-btn">Ändra</button>
-    </div>
+      <!-- Namn -->
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="user-name-input"
+          value="Name Lastname"
+        />
+        <button class="btn btn-outline-light change-btn" type="button">
+          Ändra
+        </button>
+      </div>
 
-    <!-- Namn -->
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" id="user-name-input" value="Name Lastname">
-      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
-    </div>
+      <!-- Email -->
+      <div class="input-group mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="user-email-input"
+          value="abasicuser@gmail.com"
+        />
+        <button class="btn btn-outline-light change-btn" type="button">
+          Ändra
+        </button>
+      </div>
 
-    <!-- Email -->
-    <div class="input-group mb-3">
-      <input type="email" class="form-control" id="user-email-input" value="abasicuser@gmail.com">
-      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
-    </div>
+      <!-- Mobilnummer -->
+      <div class="input-group mb-3">
+        <input
+          type="tel"
+          class="form-control"
+          id="user-phone-input"
+          value="+460793149013"
+        />
+        <button class="btn btn-outline-light change-btn" type="button">
+          Ändra
+        </button>
+      </div>
+    </section>
 
-    <!-- Mobilnummer -->
-    <div class="input-group mb-3">
-      <input type="tel" class="form-control" id="user-phone-input" value="+460793149013">
-      <button class="btn btn-outline-light change-btn" type="button">Ändra</button>
-    </div>
+    <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
 
-  </section>
+    <script>
+      const user = JSON.parse(localStorage.getItem("user"));
 
-  <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
+      if (user) {
+        document.getElementById("user-name-input").value = user.username;
 
+        document.getElementById("user-email-input").value = user.email;
 
-  <script>
-
-    const user =
-      JSON.parse(
-        localStorage.getItem("user")
-      );
-    
-    if (user) {
-    
-      document.getElementById(
-        "user-name-input"
-      ).value = user.username;
-    
-      document.getElementById(
-        "user-email-input"
-      ).value = user.email;
-    
-      document.getElementById(
-        "user-phone-input"
-      ).value = user.phone;
-    
-    }
-    
+        document.getElementById("user-phone-input").value = user.phone;
+      }
     </script>
-
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

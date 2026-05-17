@@ -104,6 +104,11 @@ nav.navbar {
   backdrop-filter: blur(4px);
 }
 
+#filter-panel{
+  width: 35vw;
+  max-width: 250px;
+}
+
 #filter-panel h3 {
   font-weight: 900;
   font-size: 1.18rem;
@@ -308,48 +313,29 @@ nav.navbar {
   color: rgb(0, 0, 0);
 }
 
-
-/* 3. CSS for the Overlay */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5); /* Semi-transparent black */
-  z-index: 1000; /* Sit on top */
-}
-
-/* 4. CSS for the Small Centered Box */
+/* Ensure modal looks good on very small screens */
 .modal-content {
-  background-color: white;
-  margin: 5% auto; /* 15% from top, centered */
+  width: 90%;           /* fallback for old browsers */
+  max-width: 1000px;
+  margin: 5% auto;
   padding: 20px;
-  width: 100%;
-  max-width: 1000px; /* Small size */
-  border-radius: 10px;
-}
-.close { color: #aaa; float: right; cursor: pointer; }
-
-.form-select{
-    position:relative;
-    right: 0px;
 }
 
-#FOODPIC{
-    transition: transform 0.3s ease;
+/* Let the close button be a normal <span> */
+.close {
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+  line-height: 1;
 }
 
-#FOODPIC:hover{
-    transform: scale(0.95);
-}
-
-
-#goddess{
- /* Use a thick, rounded font like 'Fredoka One' or 'Bubblegum Sans' */
+/* The title already uses #goddess with the fun font – fine */
+#goddess {
   font-family: 'Fredoka One', 'Rounded Mplus 1c', cursive;
   font-size: 4rem;
-  text-align: center;
 }
+
+/* On small screens, reduce title size a bit (optional) */
 
 #modelback{
   background: linear-gradient(-45deg, #ee7752, #f7e085, #f5a2a2, #d5a023);
@@ -357,8 +343,19 @@ nav.navbar {
   background-size: 400% 400%; /* Makes gradient larger than div */
 
 }
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 576px) {
+  #goddess {
+    font-size: 2.5rem;
+  }
+  .modal-content {
+    margin: 10% auto;
+    padding: 15px;
+  }
 }
