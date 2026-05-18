@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodie</title>
+
+    <!-- Delad layout-styling (navbar, galleri, filter) -->
+    <link rel="stylesheet" href="../Home-log-in/style.css" />
+    <link rel="stylesheet" href="../Contact/contact.css">
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ====== NAVBAR (inloggad användare) ====== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- Logotyp länkad till inloggad startsida -->
+        <a class="navbar-brand" href="../Home-log-in/home.html">
+          <img id="logo" src="../Images/foodie.png" alt="Foodie" />
+        </a>
+
+        <!-- Hamburgarmeny för mobil -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Länk till kontakt -->
+                <li class="nav-item">
+              <a class="nav-link" href="../Contact/contact.html">
+                <img id="userlogo" src="../Images/details.png" alt="User" />
+              </a>
+            </li>
+
+            <!-- Länk till kundvagn -->
+            <li class="nav-item">
+              <a class="nav-link" href="../Cart/cart.html">
+                <img id="cartlogo" src="../Images/cart.png" alt="Cart" />
+              </a>
+            </li>
+
+            <!-- Länk till adminpanel (visas bara för admin-roller via backend) -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="nav-admin-link"
+                href="../admin/admin.html"
+              >
+                <img id="adminlogo" src="../Images/admin.png" alt="Admin" />
+              </a>
+            </li>
+
+            <!-- Länk till användarprofil -->
+            <li class="nav-item">
+              <a class="nav-link" href="../User/user.html">
+                <img id="userlogo" src="../Images/user.png" alt="User" />
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+        <p class="contact-info"> 
+            Kontakta oss
+        </p>
+
+        <p class="contact-info"> 
+            ============
+        </p>
+
+        <p class="contact-info"> 
+        foodieinc@gmail.com
+        </p>
+
+        <p class="contact-info"> 
+        +46078349149
+        </p>
+
+      </aside>
+
+  </body>
+</html>
