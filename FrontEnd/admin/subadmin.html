@@ -65,15 +65,18 @@
       </div>
     </nav>
     <!-- ====== SLUT NAVBAR ====== -->
-
     <!-- ====== LÄGG TILL PRODUKT ====== -->
     <!-- Backend: POST-ar produktdata till API:et för att lägga till en ny produkt -->
     <section id="add-product-section" class="container mt-5">
       <h3 class="mb-4">Lägg till ny produkt</h3>
-
-      <form id="add-product-form" class="row g-3 align-items-end">
+      <!-- FIXED: Added enctype for file uploads -->
+      <form
+        id="add-product-form"
+        class="row g-3 align-items-end"
+        enctype="multipart/form-data"
+      >
         <!-- Produktnamn -->
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label for="add-product-name" class="form-label">Produktnamn</label>
           <input
             type="text"
@@ -101,19 +104,15 @@
         </div>
 
         <!-- Mat Typ -->
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label for="add-product-type" class="form-label">Mat Typ</label>
-
           <select
             class="form-select"
-            aria-label="Default select example"
             id="add-product-type"
             name="productType"
             required
           >
-            <option value="" disabled selected>
-              Open this to select food type
-            </option>
+            <option value="" disabled selected>Välj mattyp</option>
             <option value="beef">Nötkött</option>
             <option value="chicken">Kyckling</option>
             <option value="fish">Fisk</option>
@@ -136,6 +135,19 @@
           />
         </div>
 
+        <!-- ADDED: Produktbild Input -->
+        <div class="col-md-2">
+          <label for="add-product-image" class="form-label">Produktbild</label>
+          <input
+            type="file"
+            class="form-control"
+            id="add-product-image"
+            name="productImage"
+            accept="image/*"
+            required
+          />
+        </div>
+
         <!-- Spara-knapp -->
         <div class="col-md-2">
           <button type="submit" class="btn btn-primary w-100">
@@ -144,6 +156,8 @@
         </div>
       </form>
     </section>
+    <!-- ====== SLUT LÄGG TILL PRODUKT ====== -->
+
     <!-- ====== SLUT LÄGG TILL PRODUKT ====== -->
 
     <!-- ====== TA BORT PRODUKT ====== -->

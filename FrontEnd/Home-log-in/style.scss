@@ -1,0 +1,370 @@
+// ================================================
+// style.scss — Delad layout-styling för Foodie
+// Kompileras med Live Sass Compiler till style.css
+// ================================================
+
+// -----------------------------
+// VARIABLER (färger, brytpunkter, övergångar)
+// -----------------------------
+$logo-pink: #e65977;
+$logo-coral: #ff9a56;
+$logo-yellow: #bb880a;
+$logo-teal: #00b52d;
+$logo-blue: #6fb7ff;
+$panel-accent: rgba(255, 255, 255, 0.85);
+$filter-bg-gradient: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
+$navbar-bg-gradient: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
+$modal-bg-gradient: linear-gradient(-45deg, #ee7752, #f7e085, #f5a2a2, #d5a023);
+$body-bg-image: url(../Images/foodie4.png);
+$breakpoint-md: 600px;
+$breakpoint-sm: 576px;
+
+// -----------------------------
+// GLOBALT & BODY
+// -----------------------------
+html, body {
+  height: 100%;
+  margin: 0;
+  padding-top: 60px;
+}
+
+body {
+  background-image: $body-bg-image;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// -----------------------------
+// NAVBAR (fixed)
+// -----------------------------
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: $navbar-bg-gradient;
+  border-right: 6px solid $panel-accent;
+  backdrop-filter: blur(4px);
+}
+
+// Logotyper
+#logo {
+  height: 50px;
+  width: auto;
+}
+
+#cartlogo,
+#adminlogo {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+#userlogo {
+  height: 30px;
+  width: auto;
+}
+
+// Gast-vy knapp
+.buttoninfouser {
+  margin-left: 720px;
+}
+
+// -----------------------------
+// SIDANS HUVUDINNEHÅLL (filter + galleri)
+// -----------------------------
+.content-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 20px 20px 0;
+  margin-left: 260px; // plats för fast filter-spalt
+}
+
+// -----------------------------
+// FILTERPANEL (fast vänsterspalt)
+// -----------------------------
+.filters-box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  background: $filter-bg-gradient;
+  width: 240px;
+  height: calc(100vh - 60px);
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 998;
+  border-right: 6px solid $panel-accent;
+  backdrop-filter: blur(4px);
+}
+
+#filter-panel {
+  width: 35vw;
+  max-width: 250px;
+
+  h3 {
+    font-weight: 900;
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+    background-image: linear-gradient(90deg, $logo-pink, $logo-coral);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: logoColorCycle 1.4s linear infinite;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  label {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 800;
+    font-size: 0.98rem;
+    margin: 6px 0;
+    background-image: linear-gradient(90deg, $logo-yellow, $logo-teal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: logoColorCycle 1.4s linear infinite, gentleBounce 1.8s ease-in-out infinite;
+
+    // annan timing för labels
+    &:nth-of-type(odd) {
+      animation-delay: 0.08s;
+    }
+    &:nth-of-type(even) {
+      animation-delay: 0.28s;
+    }
+  }
+}
+
+// Checkboxar – med rainbow-effekt via JS
+.filters-box input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f9 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease;
+  display: inline-block;
+
+  &:checked {
+    border-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 18px rgba(107, 183, 255, 0.12);
+    transform: scale(1.04);
+    background-image: var(--csvg, none), var(--cbg, linear-gradient(180deg, $logo-pink, $logo-coral));
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, 50% 50%;
+    background-size: 60% 60%, 200% 200%;
+  }
+
+  &.rainbow {
+    animation: bgShift 1.2s linear infinite;
+    background-size: 60% 60%, 300% 300%;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(255, 107, 138, 0.14);
+  }
+}
+
+// Respons: minska checkboxar på små skärmar
+@media (max-width: $breakpoint-md) {
+  .filters-box input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+}
+
+// Rörelse-reducerande stöd
+@media (prefers-reduced-motion: reduce) {
+  .filters-box input[type="checkbox"] {
+    transition: none;
+    transform: none;
+
+    &:checked {
+      transform: none;
+    }
+  }
+}
+
+// -----------------------------
+// KEYFRAMES (färgcykling, bakgrundsskift)
+// -----------------------------
+@keyframes logoColorCycle {
+  0%   { background-image: linear-gradient(90deg, $logo-pink, $logo-coral); }
+  25%  { background-image: linear-gradient(90deg, $logo-coral, $logo-yellow); }
+  50%  { background-image: linear-gradient(90deg, $logo-yellow, $logo-teal); }
+  75%  { background-image: linear-gradient(90deg, $logo-teal, $logo-blue); }
+  100% { background-image: linear-gradient(90deg, $logo-blue, $logo-pink); }
+}
+
+@keyframes bgShift {
+  0%   { background-position: center, 0% 50%; }
+  50%  { background-position: center, 100% 50%; }
+  100% { background-position: center, 0% 50%; }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// För de som föredrar mindre rörelse – stäng av animation på filterrubriker
+@media (prefers-reduced-motion: reduce) {
+  #filter-panel h3,
+  #filter-panel label {
+    animation: none;
+  }
+}
+
+// -----------------------------
+// MATGALLERI
+// -----------------------------
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  flex: 1;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+
+  &:hover .gallery-image {
+    transform: scale(1.08);
+  }
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 4px;
+
+  h4 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+// -----------------------------
+// KUNDVAGN & PROFIL (specifika klasser)
+// -----------------------------
+#textkundvagn {
+  margin-left: 28%;
+  font-size: 100px;
+}
+
+#buttoncontinue {
+  margin-left: 28%;
+  margin-top: 25%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+#buttonpaynow {
+  margin-left: 14%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+#textpay {
+  margin-left: 34%;
+}
+
+#maintext {
+  margin-left: 37%;
+}
+
+.textnames {
+  margin-left: 6%;
+}
+
+.LogSign {
+  color: rgb(94, 94, 94);
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
+}
+
+// -----------------------------
+// MODAL (popup-fönster)
+// -----------------------------
+.modal-content {
+  width: 90%;
+  max-width: 1000px;
+  margin: 5% auto;
+  padding: 20px;
+  background: $modal-bg-gradient;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.close {
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+  line-height: 1;
+}
+
+#goddess {
+  font-family: 'Fredoka One', 'Rounded Mplus 1c', cursive;
+  font-size: 4rem;
+}
+
+// Anpassning för små skärmar
+@media (max-width: $breakpoint-sm) {
+  #goddess {
+    font-size: 2.5rem;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    padding: 15px;
+  }
+}
