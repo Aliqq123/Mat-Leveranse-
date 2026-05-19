@@ -140,7 +140,7 @@
       <!-- Matgalleri — bilder laddas dynamiskt från backend -->
       <section id="food-gallery" class="gallery">
         <!-- Backend ersätter dessa placeholder-bilder med riktiga maträtter -->
-        <button onclick="openModal()" style="all: unset">
+        <!-- <button onclick="openModal()" style="all: unset">
           <div class="gallery-item">
             <img
               class="gallery-image"
@@ -229,61 +229,54 @@
               <p>Köttalternativ: Tofu</p>
             </div>
           </div>
-        </button>
+        </button> -->
       </section>
     </div>
     <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
 
     <div id="itemModal" class="modal">
       <div class="modal-content" id="modelback">
-        <!-- Header row: close button + title -->
         <div class="d-flex justify-content-between align-items-center mb-3">
           <span class="close" onclick="closeModal()">&times;</span>
-          <h2 class="mb-0 flex-grow-1 text-center" id="goddess">Burger</h2>
-          <!-- empty div to keep title centred (symmetrical with close button) -->
+
+          <h2 class="mb-0 flex-grow-1 text-center" id="modalTitle"></h2>
+
           <div style="width: 30px"></div>
         </div>
 
-        <!-- Image and description row -->
         <div class="row">
           <div class="col-md-6 mb-3 mb-md-0">
             <img
-              src="../Images/fatas.jpg"
+              src=""
               alt="Food Item"
               class="img-fluid w-100 rounded"
-              id="FOODPIC"
+              id="modalImage"
             />
           </div>
+
           <div class="col-md-6">
-            <h3>Puffy burger</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem explicabo quam officia nemo porro doloribus? Nam
-              distinctio ab inventore. Repellendus quisquam pariatur atque rerum
-              unde magnam veritatis mollitia voluptate cum in dolore expedita
-              corporis illo vel optio repellat beatae cupiditate aspernatur,
-              officia deserunt porro a! Quasi voluptate iste ratione minima.
-            </p>
+            <h3 id="modalName"></h3>
+            <p id="modalDescription"></p>
           </div>
         </div>
 
         <!-- Quantity select & Add to Cart button -->
         <div class="d-flex justify-content-end mt-3">
-          <select
-            class="form-select"
-            aria-label="Quantity"
-            style="width: auto; max-width: 300px; margin-right: 1rem"
-          >
-            <option selected>Open this select amount</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-          </select>
+         <select
+           class="form-select"
+           aria-label="Quantity"
+           style="width: auto; max-width: 300px; margin-right: 1rem"
+         >
+          <option selected>Open this select amount</option>
+          <option value="1">1</option> 
+          <option value="2">2</option> 
+          <option value="3">3</option> 
+          <option value="4">4</option> 
+          <option value="5">5</option> 
+          <option value="6">6</option> 
+          <option value="7">7</option> 
+          <option value="8">8</option> 
+         </select>
         </div>
 
         <button
@@ -291,12 +284,45 @@
           class="btn btn-dark w-100 rounded-pill mt-3"
           style="height: 6vh"
         >
-          Add to <span id="itemAmount">1</span> Order • SEK<span>129.00</span>
+          Add to Order • SEK <span id="modalPrice"></span>
         </button>
       </div>
     </div>
 
     <script src="popup.js"></script>
+
+    <script>
+      // Här är koden för att visa producten på hemsidan (obs du behöver ladd ner images själv)
+      async function loadProducts() {
+        const res = await fetch("/api/products");
+        const products = await res.json();
+
+        const container = document.getElementById("food-gallery");
+
+        container.innerHTML = products
+          .map(
+            (p) => `
+          <button
+            style="all: unset"
+            onclick='openModal(${JSON.stringify(p)})'
+          >
+            <div class="gallery-item">
+              <img class="gallery-image" src="${p.product_image}" alt="food" />
+
+              <div class="gallery-overlay">
+                <h4>${p.product_name}</h4>
+                <p>${p.product_description}</p>
+                <p>Pris: ${p.product_price} kr</p>
+              </div>
+            </div>
+          </button>
+        `,
+          )
+          .join("");
+      }
+
+      loadProducts();
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
