@@ -1,0 +1,17 @@
+
+.contact-info {
+  background-image: linear-gradient(90deg, #bb880a, #00b52d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  animation: logoColorCycle 1.4s linear infinite, gentleBounce 1.8s ease-in-out infinite;
+  animation-delay: 0.18s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 90px;
+}
