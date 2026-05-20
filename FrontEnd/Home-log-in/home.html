@@ -139,97 +139,6 @@
 
       <!-- Matgalleri — bilder laddas dynamiskt från backend -->
       <section id="food-gallery" class="gallery">
-        <!-- Backend ersätter dessa placeholder-bilder med riktiga maträtter -->
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
-        <button onclick="openModal()" style="all: unset">
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="../Images/lickitung.jpg"
-              alt="food"
-            />
-            <div class="gallery-overlay">
-              <h4>Grillad lax med örter</h4>
-              <p>Beskrivning: Mild och saftig lax med citron och dill.</p>
-              <p>Plats: Malmö</p>
-              <p>Köttalternativ: Tofu</p>
-            </div>
-          </div>
-        </button>
       </section>
     </div>
     <!-- ====== SLUT HUVUDINNEHÅLL ====== -->
@@ -303,5 +212,35 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      async function loadProducts() {
+        try {
+          const res = await fetch("/api/products");
+          const products = await res.json();
+      
+          const container = document.getElementById("food-gallery");
+      
+          container.innerHTML = products.map(p => `
+            <button onclick="openModal()" style="all: unset">
+              <div class="gallery-item">
+                <img class="gallery-image" src="${p.product_image}" alt="${p.product_name}" />
+                <div class="gallery-overlay">
+                  <h4>${p.product_name}</h4>
+                  <p>${p.product_description}</p>
+                  <p>Pris: ${p.product_price} kr</p>
+                  <p>Typ: ${p.product_type}</p>
+                </div>
+              </div>
+            </button>
+          `).join("");
+      
+        } catch (err) {
+          console.error("Kunde inte ladda produkter:", err);
+        }
+      }
+      
+      loadProducts();
+      </script>
   </body>
 </html>

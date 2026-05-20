@@ -89,18 +89,9 @@
           </tr>
         </thead>
         <!-- Backend renderar <tr> för varje produkt här -->
-        <tbody id="inventory-table-body">
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-          <tr><td>filler</td><td>filler</td><td>filler</td><td>filler</td><td>filler</td></tr>
-
-        </tbody>
+          <tbody id="inventory-table-body">
+            
+          </tbody>
       </table>
     </div>
 
@@ -113,5 +104,26 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"
   ></script>
+  <script>
+    async function loadInventory() {
+      const res = await fetch("/api/admin");
+      const products = await res.json();
+    
+      const tableBody = document.getElementById("inventory-table-body");
+    
+      tableBody.innerHTML = products.map(p => `
+        <tr>
+          <td>${p.product_id}</td>
+          <td>${p.product_name}</td>
+          <td>${p.product_origin}</td>
+          <td>${p.product_type}</td>
+          <td>${p.product_price} kr</td>
+        </tr>
+      `).join("");
+    }
+    
+    loadInventory();
+    </script>
+
 </body>
 </html>

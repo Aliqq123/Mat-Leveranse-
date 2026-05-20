@@ -87,6 +87,18 @@
             required
           />
         </div>
+        <!-- Beskrivning -->
+        <div class="col-md-2">
+          <label for="add-product-description" class="form-label">Discription</label>
+          <input
+            type="text"
+            class="form-control"
+            id="add-product-description"
+            name="Description"
+            placeholder="T.ex. lasange med kokosbullar"
+            required
+          />
+        </div>
 
         <!-- Ursprung -->
         <div class="col-md-2">
@@ -212,5 +224,65 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+
+      const form = document.getElementById("add-product-form");
+      
+      form.addEventListener("submit", async (e) => {
+      
+        e.preventDefault();
+      
+        const formData = new FormData();
+      
+        formData.append(
+          "product_name",
+          document.getElementById("add-product-name").value
+        );
+      
+        formData.append(
+          "product_description",
+          document.getElementById("add-product-description").value
+        );
+      
+        formData.append(
+          "product_origin",
+          document.getElementById("add-product-origin").value
+        );
+      
+        formData.append(
+          "product_type",
+          document.getElementById("add-product-type").value
+        );
+      
+        formData.append(
+          "product_price",
+          document.getElementById("add-product-price").value
+        );
+      
+        // BILDEN
+        formData.append(
+          "productImage",
+          document.getElementById("add-product-image").files[0]
+        );
+      
+        const res = await fetch("/api/admin", {
+      
+          method: "POST",
+          body: formData
+      
+        });
+      
+        if (res.ok) {
+      
+          alert("Produkt sparad!");
+      
+          form.reset();
+      
+        }
+      
+      });
+      
+      </script>
   </body>
 </html>

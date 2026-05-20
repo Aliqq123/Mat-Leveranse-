@@ -1,0 +1,6 @@
+product_name,product_description,product_image,product_price,product_origin,product_type
+Tacos,Traditionella mexikanska tacos med nötkött och salsa,/Images/tacos.jpg,85.00,Mexico,Nötkött
+Kycklingrulle,Saftig kycklingrulle med grönsaker och sås,/Images/chickenrulle.jpg,90.00,Lebanon,Kyckling
+Lax,Grillad lax med citron och örter,/Images/lax.jpg,150.00,Sweden,Fisk
+Vegoburgare,Växtbaserad burgare med sallad och dressing,/Images/vegoBurger.jpg,86.00,Sweden,Vegetariskt
+Baklava,Söt baklava med nötter och honung,/Images/baklava.jpg,35.00,Turkey,Dessert
