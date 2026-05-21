@@ -1,6 +1,5 @@
-//Här definierar du URL:er.
+//Här kopllar eller defineras URL:er för i det här fallet produkter.
 
-// Product endpoints
 // GET /products
 // GET /products/:id
 // POST /products
@@ -13,6 +12,10 @@ import { fetchProducts } from "../controllers/productController.js";
 
 const router = express.Router();
 
-router.get("/", fetchProducts);
+//En GET-förfrågan till "/products" (rooten för products),
+// så körs funktionen fetchProducts som hämtar alla produkter från databasen
+// och skickar tillbaka dem som JSON till klienten.
+
+router.get("/", fetchProducts); 
 
 export default router;

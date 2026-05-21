@@ -1,17 +1,11 @@
-//Här pratar du med PostgreSQL.
-
-// SQL queries för users
-// findUserByEmail
-// createUser
-// getUserById
-// updateUser
-// deleteUser
-
-// iNGA ÄNDRING KRÄVS
+// Här hämtas datan (users) från PostgreSQL.
+// Den här filen innehåller SQL queries som pratar direkt med databasen.
 
 import db from "../db.js";
 
-// Skapa ny user
+
+// SKAPA NY USER (INSERT)
+// Lägger till en ny användare i tabellen "users"
 export const createUser = async (
   username,
   email,
@@ -37,15 +31,49 @@ export const createUser = async (
 };
 
 
-// Hitta user via email
+// HITTA USER VIA EMAIL (SELECT)
+// Hämtar en user från databasen baserat på email
 export const findUserByEmail = async (email) => {
 
-    return await db.query(
-      `
-      SELECT * FROM users
-      WHERE email = $1
-      `,
-      [email]
-    );
-  
-  };
+  return await db.query(
+    `
+    SELECT * FROM users
+    WHERE email = $1
+    `,
+    [email]
+  );
+
+};
+
+
+// UPPDATERA USER (UPDATE)
+// Uppdaterar user-information i databasen och returnerar den uppdaterade raden
+export const updateUserProfile = async (
+  id,
+  username,
+  email,
+  phone,
+  profile_image
+) => {
+
+  return await db.query(
+    `
+    UPDATE users
+    SET
+      username = $1,
+      email = $2,
+      phone = $3,
+      profile_image = $4
+    WHERE id = $5
+    RETURNING *
+    `,
+    [
+      username,
+      email,
+      phone,
+      profile_image,
+      id
+    ]
+  );
+
+};

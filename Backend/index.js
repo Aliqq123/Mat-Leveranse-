@@ -1,19 +1,12 @@
-// Main server file
-
-// Import express
-// Import routes
-// Import middleware
-// Connect database
-// Static frontend
-// API routes
-// Start server
-// Använda routes 
-// Middleware
+// MAIN SERVER FILE
+// Den här filen startar och konfigurerar hela backend-servern
 
 import express from "express";
 import path from "path";
 import cors from "cors";
 import { fileURLToPath } from "url";
+
+// Import av routes (API endpoints)
 import userRoutes from "./routes/userRoute.js";
 import productRoutes from "./routes/productRoute.js";
 import adminRoutes from "./routes/adminRoute.js";
@@ -22,45 +15,81 @@ const server = express();
 const port = 3000;
 
 
-// FIX för __dirname i ES modules
+// FIX för __dirname i ES Modules (så att path fungerar korrekt)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-// Middleware
+// =========================
+// MIDDLEWARE
+// =========================
+
+// Tillåter frontend att prata med backend (CORS)
 server.use(cors());
+
+// Gör så att servern kan läsa JSON i requests (req.body)
 server.use(express.json());
+
+// Gör uploads-mappen offentlig så bilder kan visas i browsern
 server.use("/uploads", express.static("uploads"));
 
-// router in work
-server.use("/api/users", userRoutes); // DET FÖR USER, INGA ÄNDIRNG KRÄVS 
-server.use("/api/products", productRoutes); // DET ÄR FÖR PRODUCTER, använd den senare för att koppla frontend och backend
-server.use("/api/admin", adminRoutes); // Det är för admin producter, läggas ny producter. 
 
-// Gör FrontEnd-mappen offentlig
+// =========================
+// API ROUTES
+// =========================
+
+// Kopplar URL:er till respektive route-fil
+server.use("/api/users", userRoutes);     // User endpoints (register, login, update)
+server.use("/api/products", productRoutes); // Product endpoints
+server.use("/api/admin", adminRoutes);     // Admin endpoints
+
+
+// Extra static access till uploads (säkerställer bildåtkomst)
+server.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
+
+
+// =========================
+// FRONTEND STATIC FILES
+// =========================
+
+// Gör FrontEnd-mappen tillgänglig för webbläsaren
 server.use(express.static(path.join(__dirname, "../FrontEnd")));
 
 
-// VISA HOME/index.html
+// =========================
+// FRONTEND ROUTES (HTML pages)
+// =========================
+
+// Home page
 server.get("/", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../FrontEnd/Home/index.html")
   );
-
 });
 
-// VISA HOME/loging.html
+
+// Login page
 server.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../FrontEnd/logout-login/login.html")
+  res.sendFile(
+    path.join(__dirname, "../FrontEnd/logout-login/login.html")
   );
 });
 
-// SIGN UP 
+
+// Sign up page
 server.get("/sign", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../FrontEnd/logout-login/sign.html")
   );
 });
+
+
+// =========================
+// START SERVER
+// =========================
 
 
 server.listen(port, () => {

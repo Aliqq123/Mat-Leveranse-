@@ -1,4 +1,4 @@
-//Här pratar du med PostgreSQL.
+//Här hämtas datan(dsv produkterna) från PostgreSQL.
 
 // SQL queries för produkter
 // getAllProducts
@@ -25,8 +25,8 @@ export async function getAllProducts() {
       product_origin,
       product_type
     FROM products
-    ORDER BY product_id DESC
-  `);
+    ORDER BY product_id DESC 
+  `); //sortera så nyaste produkter kommer först
 
   return result.rows;
 }

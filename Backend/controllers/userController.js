@@ -1,4 +1,5 @@
-//Här ligger logiken.
+// Controller (logik lagret för user)
+// Tar emot HTTP(commuincation btw clinet and server) request från route och hanterar vad som ska göras
 
 // Hanterar users
 // Register user
@@ -11,7 +12,8 @@ import bcrypt from "bcrypt";
 
 import {
   findUserByEmail,
-  createUser
+  createUser,
+  updateUserProfile
 } from "../models/userModel.js";
 
 
@@ -27,7 +29,7 @@ export const registerUser = async (req, res) => {
 
   try {
 
-    // Finns email redan?
+    // Kollar om email redan finns i databasen
     const existingUser =
       await findUserByEmail(email);
 
@@ -39,11 +41,12 @@ export const registerUser = async (req, res) => {
 
     }
 
-    // Hasha lösenord
+  
+    // Krypterar lösenord innan det sparas i databasen (säkerhet)
     const hashedPassword =
       await bcrypt.hash(password, 10);
 
-    // Skapa user
+    // Skapar en ny user i databasen
     await createUser(
       username,
       email,
@@ -51,7 +54,7 @@ export const registerUser = async (req, res) => {
       hashedPassword
     );
 
-
+    // Skickar tillbaka svar till client att user är skapad
     res.status(201).json({
       message: "User created successfully",
       user: {
@@ -79,6 +82,7 @@ export const loginUser = async (req, res) => {
 
   try {
 
+  // Hämtar user från databasen baserat på email
     const user =
       await findUserByEmail(email);
 
@@ -91,7 +95,7 @@ export const loginUser = async (req, res) => {
 
     }
 
-    // Kolla password
+    // Jämför inskrivet lösenord med hashat lösenord i databasen
     const validPassword =
       await bcrypt.compare(
         password,
@@ -106,20 +110,59 @@ export const loginUser = async (req, res) => {
 
     }
 
+    // Login lyckades → skickar user-data tillbaka
     res.status(200).json({
       message: "Login successful",
       user: {
+        id: user.rows[0].id,
         username: user.rows[0].username,
         email: user.rows[0].email,
         phone: user.rows[0].phone,
-        role: user.rows[0].role
+        role: user.rows[0].role,
+        profile_image: user.rows[0].profile_image
       }
     });
-
 
   } catch (error) {
 
     res.status(500).send(error.message);
 
+  }
+};
+
+export const updateUser = async (req, res) => {
+  try {
+    const { id, username, email, phone } = req.body;
+
+    // Hämta nuvarande user först
+    const currentUser = await findUserByEmail(email);
+
+    let profile_image =
+      currentUser.rows[0].profile_image;
+
+    // om ny bild laddas upp ersätt
+    if (req.file) {
+      profile_image = "/uploads/" + req.file.filename;
+    }
+
+    // Uppdaterar user i databasen
+    const updatedUser = await updateUserProfile(
+      id,
+      username,
+      email,
+      phone,
+      profile_image
+    );
+
+    res.json({
+      message: "User updated",
+      user: updatedUser.rows[0]
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      error: "Could not update user"
+    });
   }
 };

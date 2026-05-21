@@ -81,8 +81,26 @@
     <section id="user-profile-section">
       <!-- Profilbild med ändra-knapp -->
       <div class="profile-picture-container">
-        <img id="profile-picture" src="../Images/user2.png" alt="Profile" />
-        <button class="btn btn-outline-light btn-sm change-btn">Ändra</button>
+
+        <img
+          id="profile-picture"
+          src="../Images/user2.png"
+          alt="Profile"
+        />
+      
+        <input
+          type="file"
+          id="profile-image-input"
+          hidden
+        />
+      
+        <button
+          class="btn btn-outline-light btn-sm change-btn"
+          onclick="document.getElementById('profile-image-input').click()"
+        >
+          Ändra
+        </button>
+      
       </div>
 
       <!-- Namn -->
@@ -123,25 +141,128 @@
           Ändra
         </button>
       </div>
+      <button
+      id="save-profile-btn"
+      class="btn btn-dark w-100"
+    >
+      Spara profil
+    </button>
     </section>
 
     <!-- ====== SLUT ANVÄNDARPROFIL ====== -->
-
-    <script>
-      const user = JSON.parse(localStorage.getItem("user"));
-
-      if (user) {
-        document.getElementById("user-name-input").value = user.username;
-
-        document.getElementById("user-email-input").value = user.email;
-
-        document.getElementById("user-phone-input").value = user.phone;
-      }
-    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="./auth_UI.js"></script>
+
+    <script>
+
+      const user =
+        JSON.parse(
+          localStorage.getItem("user")
+        );
+      
+      if (user) {
+      
+        document.getElementById(
+          "user-name-input"
+        ).value = user.username;
+      
+        document.getElementById(
+          "user-email-input"
+        ).value = user.email;
+      
+        document.getElementById(
+          "user-phone-input"
+        ).value = user.phone;
+      
+        if (user.profile_image) {
+      
+          document.getElementById(
+            "profile-picture"
+          ).src = user.profile_image;
+      
+        }
+      
+      }
+      
+      document
+        .getElementById(
+          "save-profile-btn"
+        )
+        .addEventListener(
+          "click",
+          async () => {
+      
+            const formData =
+              new FormData();
+      
+            formData.append(
+              "id",
+              user.id
+            );
+      
+            formData.append(
+              "username",
+              document.getElementById(
+                "user-name-input"
+              ).value
+            );
+      
+            formData.append(
+              "email",
+              document.getElementById(
+                "user-email-input"
+              ).value
+            );
+      
+            formData.append(
+              "phone",
+              document.getElementById(
+                "user-phone-input"
+              ).value
+            );
+      
+            const imageFile =
+              document.getElementById(
+                "profile-image-input"
+              ).files[0];
+      
+            if (imageFile) {
+      
+              formData.append(
+                "profileImage",
+                imageFile
+              );
+      
+            }
+      
+            const res =
+              await fetch(
+                "/api/users/update",
+                {
+                  method: "PUT",
+                  body: formData
+                }
+              );
+      
+            const data =
+              await res.json();
+      
+            localStorage.setItem(
+              "user",
+              JSON.stringify(data.user)
+            );
+      
+            alert("Profil uppdaterad!");
+      
+            location.reload();
+      
+          }
+        );
+      
+      </script>
   </body>
 </html>
