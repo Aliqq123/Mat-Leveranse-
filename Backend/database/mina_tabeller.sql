@@ -109,6 +109,7 @@ CREATE TABLE public.users (
     password character varying(100),
     phone character varying(15),
     role character varying(20) DEFAULT 'user'::character varying
+    profile_image text
 );
 
 
