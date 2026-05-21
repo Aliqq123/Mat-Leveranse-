@@ -1,11 +1,3 @@
-/* ================================================
-   style.css — Delad layout-styling för Foodie
-   Används av: Home/index.html, Home-log-in/home.html,
-               Home-log-in/userlog-in.html
-   ================================================ */
-
-
-/* ---- Grundläggande sidlayout ---- */
 html, body {
   height: 100%;
   margin: 0;
@@ -13,7 +5,6 @@ html, body {
 }
 
 body {
-  /* Bakgrundsbild som täcker hela sidan */
   background-image: url(../Images/foodie4.png);
   background-size: cover;
   background-attachment: fixed;
@@ -21,22 +12,17 @@ body {
   background-repeat: no-repeat;
 }
 
-
-/* ---- Navbar ---- */
 nav.navbar {
-  /* Fixed navbar — ligger alltid överst och syns vid scroll */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
   background: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
-  border-right: 6px solid var(--panel-accent);
+  border-right: 6px solid rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
 }
 
-
-/* ---- Navbar-logotyper ---- */
 #logo {
   height: 50px;
   width: auto;
@@ -54,73 +40,49 @@ nav.navbar {
   width: auto;
 }
 
-
-/* ---- Login-knapp i navbar (gäst-vy) ---- */
 .buttoninfouser {
   margin-left: 720px;
 }
 
-
-/* ---- Sidans huvudinnehåll ---- */
-/* Wrapper som håller filter-spalt och galleri sida vid sida */
 .content-row {
   display: flex;
   gap: 20px;
   align-items: flex-start;
   padding: 20px 20px 20px 0;
-  margin-left: 260px; /* Lämnar plats för den fasta filter-spalten */
+  margin-left: 260px;
 }
 
-
-/* ---- Filterpanel (fast vänsterspalt) ---- */
 .filters-box {
   display: flex;
   flex-direction: column;
   position: fixed;
   left: 0;
-  top: 60px; /* Under navbar */
-  background-color: #F8F9FA;
+  top: 60px;
+  background: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
   width: 240px;
   height: calc(100vh - 60px);
   padding: 16px;
   box-sizing: border-box;
   z-index: 998;
-}
-
-
-/* ---- Logo-matching playful palette (adjustable) ---- */
-:root {
-  --logo-pink: #e65977;
-  --logo-coral: #ff9a56;
-  --logo-yellow: #bb880a;
-  --logo-teal: #00b52d;
-  --logo-blue: #6fb7ff;
-  --panel-accent: rgba(255,255,255,0.85);
-}
-
-.filters-box {
-  background: linear-gradient(135deg, rgba(255, 243, 245, 0.95) 0%, rgba(255, 249, 240, 0.95) 40%, rgba(240, 255, 251, 0.95) 70%);
-  border-right: 6px solid var(--panel-accent);
+  border-right: 6px solid rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
 }
 
-#filter-panel{
+#filter-panel {
   width: 35vw;
   max-width: 250px;
 }
-
 #filter-panel h3 {
   font-weight: 900;
   font-size: 1.18rem;
   margin-bottom: 8px;
-  background-image: linear-gradient(90deg, var(--logo-pink), var(--logo-coral));
-  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #e65977, #ff9a56);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   animation: logoColorCycle 1.4s linear infinite;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
-
 #filter-panel label {
   display: inline-flex;
   gap: 8px;
@@ -128,88 +90,114 @@ nav.navbar {
   font-weight: 800;
   font-size: 0.98rem;
   margin: 6px 0;
-  background-image: linear-gradient(90deg, var(--logo-yellow), var(--logo-teal));
-  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #bb880a, #00b52d);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   animation: logoColorCycle 1.4s linear infinite, gentleBounce 1.8s ease-in-out infinite;
 }
+#filter-panel label:nth-of-type(odd) {
+  animation-delay: 0.08s;
+}
+#filter-panel label:nth-of-type(even) {
+  animation-delay: 0.28s;
+}
 
-/* alternate timing so headings and labels feel playful */
-#filter-panel label:nth-of-type(odd) { animation-delay: 0.08s; }
-#filter-panel label:nth-of-type(even) { animation-delay: 0.28s; }
-
-.filters-box input[type="checkbox"] {
+.filters-box input[type=checkbox] {
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
-  appearance: none;
   width: 20px;
   height: 20px;
   margin-right: 10px;
   border-radius: 6px;
-  border: 2px solid rgba(0,0,0,0.06);
-  background: linear-gradient(180deg,#ffffff 0%, #fff7f9 100%);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f9 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   cursor: pointer;
   vertical-align: middle;
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease;
   display: inline-block;
 }
-
-.filters-box input[type="checkbox"]:checked {
-  /* Use CSS variables so JS can set a random or rainbow gradient per checkbox */
-  border-color: rgba(0,0,0,0.04);
-  box-shadow: 0 8px 18px rgba(107,183,255,0.12);
+.filters-box input[type=checkbox]:checked {
+  border-color: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 18px rgba(107, 183, 255, 0.12);
   transform: scale(1.04);
-  background-image: var(--csvg, none), var(--cbg, linear-gradient(180deg,var(--logo-pink),var(--logo-coral)));
+  background-image: var(--csvg, none), var(--cbg, linear-gradient(180deg, #e65977, #ff9a56));
   background-repeat: no-repeat, no-repeat;
   background-position: center, 50% 50%;
   background-size: 60% 60%, 200% 200%;
 }
-
-/* animated background shift for rainbow effect */
-.filters-box input[type="checkbox"].rainbow {
+.filters-box input[type=checkbox].rainbow {
   animation: bgShift 1.2s linear infinite;
   background-size: 60% 60%, 300% 300%;
 }
-
-@keyframes bgShift {
-  0% { background-position: center, 0% 50%; }
-  50% { background-position: center, 100% 50%; }
-  100% { background-position: center, 0% 50%; }
-}
-
-.filters-box input[type="checkbox"]:focus {
+.filters-box input[type=checkbox]:focus {
   outline: none;
-  box-shadow: 0 0 0 5px rgba(255,107,138,0.14);
+  box-shadow: 0 0 0 5px rgba(255, 107, 138, 0.14);
 }
 
-/* small-screen adjustment */
 @media (max-width: 600px) {
-  .filters-box input[type="checkbox"] { width: 18px; height: 18px; margin-right: 8px; }
+  .filters-box input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .filters-box input[type="checkbox"] { transition: none; transform: none; }
-  .filters-box input[type="checkbox"]:checked { transform: none; }
+  .filters-box input[type=checkbox] {
+    transition: none;
+    transform: none;
+  }
+  .filters-box input[type=checkbox]:checked {
+    transform: none;
+  }
 }
-
 @keyframes logoColorCycle {
-  0% { background-image: linear-gradient(90deg, var(--logo-pink), var(--logo-coral)); }
-  25% { background-image: linear-gradient(90deg, var(--logo-coral), var(--logo-yellow)); }
-  50% { background-image: linear-gradient(90deg, var(--logo-yellow), var(--logo-teal)); }
-  75% { background-image: linear-gradient(90deg, var(--logo-teal), var(--logo-blue)); }
-  100% { background-image: linear-gradient(90deg, var(--logo-blue), var(--logo-pink)); }
+  0% {
+    background-image: linear-gradient(90deg, #e65977, #ff9a56);
+  }
+  25% {
+    background-image: linear-gradient(90deg, #ff9a56, #bb880a);
+  }
+  50% {
+    background-image: linear-gradient(90deg, #bb880a, #00b52d);
+  }
+  75% {
+    background-image: linear-gradient(90deg, #00b52d, #6fb7ff);
+  }
+  100% {
+    background-image: linear-gradient(90deg, #6fb7ff, #e65977);
+  }
 }
-
+@keyframes bgShift {
+  0% {
+    background-position: center, 0% 50%;
+  }
+  50% {
+    background-position: center, 100% 50%;
+  }
+  100% {
+    background-position: center, 0% 50%;
+  }
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   #filter-panel h3,
   #filter-panel label {
     animation: none;
   }
 }
-
-
-/* ---- Matgalleri ---- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -222,7 +210,6 @@ nav.navbar {
   overflow: hidden;
   border-radius: 12px;
 }
-
 .gallery-item:hover .gallery-image {
   transform: scale(1.08);
 }
@@ -231,7 +218,8 @@ nav.navbar {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
@@ -249,31 +237,25 @@ nav.navbar {
   padding: 16px;
   gap: 4px;
 }
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
 .gallery-overlay h4 {
   margin: 0 0 6px;
   font-size: 1rem;
 }
-
 .gallery-overlay p {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
 
-/* ---- Kundvagnssida — textpositionering ---- */
-/* Rubrik "Kundvagn" */
 #textkundvagn {
   margin-left: 28%;
   font-size: 100px;
 }
 
-/* Knappen "Fortsätt handla" */
 #buttoncontinue {
   margin-left: 28%;
   margin-top: 25%;
@@ -282,7 +264,6 @@ nav.navbar {
   border-radius: 20px;
 }
 
-/* Knappen "Betala nu" */
 #buttonpaynow {
   margin-left: 14%;
   width: 200px;
@@ -290,38 +271,35 @@ nav.navbar {
   border-radius: 20px;
 }
 
-/* Text ovanför betalknappen */
 #textpay {
   margin-left: 34%;
 }
 
-/* Huvudrubrik på sidan */
 #maintext {
   margin-left: 37%;
 }
 
-/* Användarens namn/kontaktinfo på profilsidan */
 .textnames {
   margin-left: 6%;
 }
 
-.LogSign{
+.LogSign {
   color: rgb(94, 94, 94);
 }
-
-.LogSign:hover{
+.LogSign:hover {
   color: rgb(0, 0, 0);
 }
 
-/* Ensure modal looks good on very small screens */
 .modal-content {
-  width: 90%;           /* fallback for old browsers */
+  width: 90%;
   max-width: 1000px;
   margin: 5% auto;
   padding: 20px;
+  background: linear-gradient(-45deg, #ee7752, #f7e085, #f5a2a2, #d5a023);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
-/* Let the close button be a normal <span> */
 .close {
   font-size: 2rem;
   cursor: pointer;
@@ -329,25 +307,9 @@ nav.navbar {
   line-height: 1;
 }
 
-/* The title already uses #goddess with the fun font – fine */
 #goddess {
-  font-family: 'Fredoka One', 'Rounded Mplus 1c', cursive;
+  font-family: "Fredoka One", "Rounded Mplus 1c", cursive;
   font-size: 4rem;
-}
-
-/* On small screens, reduce title size a bit (optional) */
-
-#modelback{
-  background: linear-gradient(-45deg, #ee7752, #f7e085, #f5a2a2, #d5a023);
-  animation: gradientShift 15s ease infinite;
-  background-size: 400% 400%; /* Makes gradient larger than div */
-
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 576px) {
@@ -358,4 +320,4 @@ nav.navbar {
     margin: 10% auto;
     padding: 15px;
   }
-}
+}/*# sourceMappingURL=style.css.map */
