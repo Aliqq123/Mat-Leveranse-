@@ -17,6 +17,20 @@
     />
   </head>
   <body>
+    <!--Skydd! Bara admin redigera produkter-->
+  <script>
+
+    const user =
+      JSON.parse(localStorage.getItem("user"));
+    
+    if (!user || user.role !== "admin") {
+    
+      window.location.href =
+        "../Home-log-in/home.html";
+    
+    }
+    
+    </script>
     <!-- ====== NAVBAR ====== -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -282,6 +296,55 @@
         }
       
       });
+
+      const removeForm =
+  document.getElementById(
+    "remove-product-form"
+  );
+
+removeForm.addEventListener(
+  "submit",
+  async (e) => {
+
+    e.preventDefault();
+
+    const product = {
+
+      product_name:
+        document.getElementById(
+          "remove-product-name"
+        ).value,
+
+      product_origin:
+        document.getElementById(
+          "remove-product-origin"
+        ).value
+
+    };
+
+    const res = await fetch(
+      "/api/admin",
+      {
+        method: "DELETE",
+
+        headers: {
+          "Content-Type":
+            "application/json"
+        },
+
+        body: JSON.stringify(product)
+      }
+    );
+
+    const data = await res.json();
+
+    alert(data.message);
+
+    removeForm.reset();
+
+  }
+);
+
       
       </script>
   </body>

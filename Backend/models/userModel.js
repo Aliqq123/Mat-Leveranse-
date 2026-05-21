@@ -13,22 +13,28 @@ import db from "../db.js";
 
 // Skapa ny user
 export const createUser = async (
-    username,
-    email,
-    phone,
-    password
-  ) => {
-  
-    return await db.query(
-      `
-      INSERT INTO users
-      (username, email, phone, password)
-      VALUES ($1, $2, $3, $4)
-      `,
-      [username, email, phone, password]
-    );
-  
-  };
+  username,
+  email,
+  phone,
+  password
+) => {
+
+  return await db.query(
+    `
+    INSERT INTO users
+    (username, email, phone, password, role)
+    VALUES ($1, $2, $3, $4, $5)
+    `,
+    [
+      username,
+      email,
+      phone,
+      password,
+      "user"
+    ]
+  );
+
+};
 
 
 // Hitta user via email

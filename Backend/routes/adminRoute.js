@@ -31,6 +31,21 @@ const upload = multer({ storage });
 
 router.get("/", getProducts);
 router.post("/", upload.single("productImage"), addProduct);
-router.delete("/:id", removeProduct);
+router.delete("/", removeProduct);
+
+function isAdmin(req, res, next) {
+
+  const role = req.headers.role;
+
+  if (role !== "admin") {
+
+    return res.status(403).json({
+      error: "Access denied"
+    });
+
+  }
+
+  next();
+}
 
 export default router;

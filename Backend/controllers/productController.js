@@ -4,9 +4,7 @@
 // Hämta alla produkter
 // Hämta en produkt
 // Skapa ny produkt
-// Uppdatera produkt
-// Ta bort produkt
-// Filter/search produkter
+
 
 import { getAllProducts } from "../models/productModel.js";
 

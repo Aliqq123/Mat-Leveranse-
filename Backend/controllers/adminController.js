@@ -57,12 +57,31 @@ import {
  
 
   export async function removeProduct(req, res) {
+
     try {
-      await deleteAdminProduct(req.params.id);
   
-      res.json({ message: "Product deleted" });
+      const {
+        product_name,
+        product_origin
+      } = req.body;
+  
+      await deleteAdminProduct(
+        product_name,
+        product_origin
+      );
+  
+      res.json({
+        message: "Product deleted"
+      });
+  
     } catch (err) {
+  
       console.log(err);
-      res.status(500).json({ error: "Could not delete product" });
+  
+      res.status(500).json({
+        error: "Could not delete product"
+      });
+  
     }
+  
   }

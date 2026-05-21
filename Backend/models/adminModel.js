@@ -52,9 +52,18 @@ export async function createAdminProduct(product) {
   return result.rows[0];
 }
 
-export async function deleteAdminProduct(id) {
+export async function deleteAdminProduct(
+  product_name,
+  product_origin
+) {
+
   await db.query(
-    "DELETE FROM products WHERE product_id = $1",
-    [id]
+    `
+    DELETE FROM products
+    WHERE product_name = $1
+    AND product_origin = $2
+    `,
+    [product_name, product_origin]
   );
+
 }

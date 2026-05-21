@@ -76,63 +76,51 @@
       <!-- Backend: checkboxarna kopplas till filterlogik via JS -->
       <aside id="filter-panel" class="filters-box">
         <h3>Platser</h3>
+
         <label>
-          <input
-            type="checkbox"
-            class="filter-checkbox"
-            data-filter="platser"
-          />
+          <input type="checkbox" class="place-filter" value="Amons Kebab" />
           Amos Kebab
         </label>
-
+        
         <label>
-          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          <input type="checkbox" class="place-filter" value="Bogdans Pizzaria" />
           Bogdans Pizzeria
         </label>
+        
         <label>
-          <input
-            type="checkbox"
-            class="filter-checkbox"
-            data-filter="platser"
-          />
+          <input type="checkbox" class="place-filter" value="KFC" />
           KFC
         </label>
-
+        
         <label>
-          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          <input type="checkbox" class="place-filter" value="Wing Wongs Ricefarm" />
           Wing Wongs Ricefarm
         </label>
-
+        
         <h3>Val</h3>
+        
         <label>
-          <input
-            type="checkbox"
-            class="filter-checkbox"
-            data-filter="platser"
-          />
+          <input type="checkbox" class="type-filter" value="Nötkött" />
           Nötkött
         </label>
-
+        
         <label>
-          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          <input type="checkbox" class="type-filter" value="Kyckling" />
           Kyckling
         </label>
+        
         <label>
-          <input
-            type="checkbox"
-            class="filter-checkbox"
-            data-filter="platser"
-          />
+          <input type="checkbox" class="type-filter" value="Fisk" />
           Fisk
         </label>
-
+        
         <label>
-          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          <input type="checkbox" class="type-filter" value="Vegetariskt" />
           Vegetariskt
         </label>
-
+        
         <label>
-          <input type="checkbox" class="filter-checkbox" data-filter="kott" />
+          <input type="checkbox" class="type-filter" value="Dessert" />
           Dessert
         </label>
       </aside>
@@ -214,33 +202,141 @@
     ></script>
 
     <script>
+
+      let allProducts = [];
+      
       async function loadProducts() {
+      
         try {
-          const res = await fetch("/api/products");
-          const products = await res.json();
       
-          const container = document.getElementById("food-gallery");
+          const res =
+            await fetch("/api/products");
       
-          container.innerHTML = products.map(p => `
-            <button onclick="openModal()" style="all: unset">
-              <div class="gallery-item">
-                <img class="gallery-image" src="${p.product_image}" alt="${p.product_name}" />
-                <div class="gallery-overlay">
-                  <h4>${p.product_name}</h4>
-                  <p>${p.product_description}</p>
-                  <p>Pris: ${p.product_price} kr</p>
-                  <p>Typ: ${p.product_type}</p>
-                </div>
-              </div>
-            </button>
-          `).join("");
+          allProducts =
+            await res.json();
+      
+          renderProducts(allProducts);
       
         } catch (err) {
-          console.error("Kunde inte ladda produkter:", err);
+      
+          console.error(
+            "Kunde inte ladda produkter:",
+            err
+          );
+      
         }
+      
       }
       
+      function renderProducts(products) {
+      
+        const container =
+          document.getElementById(
+            "food-gallery"
+          );
+      
+        container.innerHTML =
+          products.map(p => `
+      
+            <button
+              onclick="openModal()"
+              style="all: unset"
+            >
+      
+              <div class="gallery-item">
+      
+                <img
+                  class="gallery-image"
+                  src="${p.product_image}"
+                  alt="${p.product_name}"
+                />
+      
+                <div class="gallery-overlay">
+      
+                  <h4>${p.product_name}</h4>
+      
+                  <p>
+                    ${p.product_description}
+                  </p>
+      
+                  <p>
+                    Pris:
+                    ${p.product_price} kr
+                  </p>
+      
+                  <p>
+                    Restaurang:
+                    ${p.product_origin}
+                  </p>
+      
+                  <p>
+                    Typ:
+                    ${p.product_type}
+                  </p>
+      
+                </div>
+      
+              </div>
+      
+            </button>
+      
+          `).join("");
+      
+      }
+      
+      function filterProducts() {
+      
+        // Alla valda restauranger
+        const selectedPlaces =
+          [...document.querySelectorAll(".place-filter:checked")]
+          .map(cb => cb.value);
+      
+        // Alla valda typer
+        const selectedTypes =
+          [...document.querySelectorAll(".type-filter:checked")]
+          .map(cb => cb.value);
+      
+        const filtered =
+          allProducts.filter(product => {
+      
+            // Match restaurang
+            const matchPlace =
+              selectedPlaces.length === 0 ||
+              selectedPlaces.includes(
+                product.product_origin
+              );
+      
+            // Match typ
+            const matchType =
+              selectedTypes.length === 0 ||
+              selectedTypes.includes(
+                product.product_type
+              );
+      
+            return matchPlace && matchType;
+      
+          });
+      
+        renderProducts(filtered);
+      
+      }
+      
+      // Lyssna på alla checkboxes
+      document
+        .querySelectorAll(
+          ".place-filter, .type-filter"
+        )
+        .forEach(cb => {
+      
+          cb.addEventListener(
+            "change",
+            filterProducts
+          );
+      
+        });
+      
       loadProducts();
+      
       </script>
   </body>
 </html>
