@@ -200,38 +200,7 @@
     <script src="popup.js"></script>
     <script src="../User/auth_UI.js"></script> <!--Detta js fill för att gömma admin ikonen från användare (rör inte på den)-->
 
-    <script>
-      // Här är koden för att visa producten på hemsidan (obs du behöver ladd ner images själv)
-      async function loadProducts() {
-        const res = await fetch("/api/products");
-        const products = await res.json();
-
-        const container = document.getElementById("food-gallery");
-
-        container.innerHTML = products
-          .map(
-            (p) => `
-          <button
-            style="all: unset"
-            onclick='openModal(${JSON.stringify(p)})'
-          >
-            <div class="gallery-item">
-              <img class="gallery-image" src="${p.product_image}" alt="food" />
-
-              <div class="gallery-overlay">
-                <h4>${p.product_name}</h4>
-                <p>${p.product_description}</p>
-                <p>Pris: ${p.product_price} kr</p>
-              </div>
-            </div>
-          </button>
-        `,
-          )
-          .join("");
-      }
-
-      loadProducts();
-    </script>
+    
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -277,7 +246,7 @@
           products.map(p => `
       
             <button
-              onclick="openModal()"
+              onclick='openModal(${JSON.stringify(p)})'
               style="all: unset"
             >
       
